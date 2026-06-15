@@ -1,4 +1,3 @@
-```html
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -8,62 +7,382 @@
 <meta name="description" content="一人経理が辞めた時に社長が最初に確認すべき10項目を解説。引き継ぎ、入金確認、支払予定、税理士対応、freee・マネーフォワード活用まで中小企業向けに整理します。">
 
 <style>
-body{max-width:960px;margin:40px auto;padding:22px;font-family:Arial,"Yu Gothic",sans-serif;line-height:1.9;color:#1f2937;background:#f3f4f6;}
-nav{background:#fff;padding:14px 18px;border-radius:10px;box-shadow:0 3px 12px rgba(0,0,0,.06);margin-bottom:34px;}
-nav a{margin-right:18px;color:#2563eb;font-weight:bold;text-decoration:none;}
-h1{font-size:34px;color:#0f172a;line-height:1.35;margin-bottom:18px;}
-h2{border-left:6px solid #1d4ed8;padding-left:14px;margin-top:48px;color:#0f172a;}
-h3{margin-top:28px;color:#111827;}
-.lead{background:#ffffff;border-top:5px solid #1d4ed8;padding:28px;border-radius:12px;box-shadow:0 5px 18px rgba(0,0,0,.06);margin:28px 0;}
-.report{background:#ffffff;padding:26px;border-radius:12px;box-shadow:0 4px 15px rgba(0,0,0,.06);margin:28px 0;}
-.point{background:#eff6ff;border-left:6px solid #2563eb;padding:22px;border-radius:8px;margin:28px 0;}
-.warning{background:#fff7ed;border-left:6px solid #f97316;padding:22px;border-radius:8px;margin:28px 0;}
-.danger{background:#fef2f2;border-left:6px solid #dc2626;padding:22px;border-radius:8px;margin:28px 0;}
-.check{background:#ffffff;border:1px solid #d1d5db;padding:24px;border-radius:10px;margin:28px 0;}
-table{width:100%;border-collapse:collapse;background:#fff;margin:25px 0;}
-th,td{border:1px solid #d1d5db;padding:13px;text-align:left;vertical-align:top;}
-th{background:#e5efff;color:#111827;}
-li{margin-bottom:8px;}
-a{color:#2563eb;font-weight:bold;}
-.cta{background:#ffffff;border:2px solid #fed7aa;padding:26px;border-radius:12px;margin:34px 0;box-shadow:0 4px 14px rgba(0,0,0,.05);}
-.small{font-size:14px;color:#6b7280;}
-footer{margin-top:55px;padding-top:25px;border-top:1px solid #d1d5db;text-align:center;}
+:root{
+  --navy:#0f172a;
+  --blue:#2563eb;
+  --orange:#f97316;
+  --green:#16a34a;
+  --red:#dc2626;
+  --purple:#7c3aed;
+  --gray:#64748b;
+  --line:#e5e7eb;
+  --bg:#f3f6fb;
+  --white:#ffffff;
+}
+
+*{box-sizing:border-box;}
+
+body{
+  margin:0;
+  font-family:Arial,"Yu Gothic",sans-serif;
+  background:
+    radial-gradient(circle at top left,rgba(249,115,22,.13),transparent 28%),
+    linear-gradient(180deg,#f8fbff 0%,#edf3ff 100%);
+  color:#1f2937;
+  line-height:1.9;
+}
+
+a{
+  color:inherit;
+  text-decoration:none;
+}
+
+.container{
+  max-width:940px;
+  margin:auto;
+  padding:18px;
+}
+
+nav{
+  background:rgba(255,255,255,.92);
+  border-bottom:1px solid var(--line);
+  position:sticky;
+  top:0;
+  z-index:10;
+  backdrop-filter:blur(10px);
+}
+
+nav .container{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding-top:12px;
+  padding-bottom:12px;
+}
+
+.logo{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  font-weight:bold;
+  color:var(--navy);
+  font-size:18px;
+}
+
+.logo-mark{
+  background:linear-gradient(135deg,var(--orange),#facc15);
+  color:white;
+  width:30px;
+  height:30px;
+  border-radius:9px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  font-weight:bold;
+}
+
+.nav-link{
+  color:var(--blue);
+  font-weight:bold;
+  font-size:14px;
+}
+
+.hero{
+  background:linear-gradient(135deg,#0f172a 0%,#1e3a8a 58%,#2563eb 100%);
+  color:white;
+  border-radius:26px;
+  padding:40px 30px;
+  margin:24px 0;
+  box-shadow:0 22px 55px rgba(37,99,235,.25);
+  position:relative;
+  overflow:hidden;
+}
+
+.hero:after{
+  content:"";
+  position:absolute;
+  right:-80px;
+  top:-80px;
+  width:230px;
+  height:230px;
+  background:rgba(249,115,22,.28);
+  border-radius:50%;
+}
+
+.kicker{
+  display:inline-block;
+  background:rgba(255,255,255,.14);
+  border:1px solid rgba(255,255,255,.28);
+  padding:6px 13px;
+  border-radius:999px;
+  font-size:13px;
+  font-weight:bold;
+  margin-bottom:14px;
+}
+
+.hero h1{
+  font-size:34px;
+  line-height:1.35;
+  margin:0 0 15px;
+  max-width:780px;
+}
+
+.hero p{
+  color:#dbeafe;
+  margin:0;
+  max-width:760px;
+}
+
+.summary{
+  background:white;
+  border-radius:20px;
+  padding:22px;
+  margin:24px 0;
+  box-shadow:0 12px 30px rgba(15,23,42,.08);
+  border:1px solid rgba(226,232,240,.9);
+}
+
+.summary h2{
+  margin:0 0 12px;
+  font-size:22px;
+  color:var(--navy);
+  border:none;
+  padding:0;
+}
+
+.summary ul{
+  margin:0;
+  padding-left:20px;
+}
+
+h2{
+  font-size:25px;
+  color:var(--navy);
+  border-left:7px solid var(--orange);
+  padding-left:14px;
+  margin-top:48px;
+}
+
+h3{
+  font-size:20px;
+  color:var(--navy);
+  margin-top:30px;
+}
+
+p{
+  margin:16px 0;
+}
+
+.report{
+  background:white;
+  border-radius:18px;
+  padding:24px;
+  margin:28px 0;
+  box-shadow:0 10px 26px rgba(15,23,42,.07);
+  border:1px solid rgba(226,232,240,.9);
+}
+
+.point{
+  background:#eff6ff;
+  border-left:7px solid var(--blue);
+  padding:22px;
+  border-radius:14px;
+  margin:28px 0;
+}
+
+.warning{
+  background:#fff7ed;
+  border-left:7px solid var(--orange);
+  padding:22px;
+  border-radius:14px;
+  margin:28px 0;
+}
+
+.danger{
+  background:#fef2f2;
+  border-left:7px solid var(--red);
+  padding:22px;
+  border-radius:14px;
+  margin:28px 0;
+}
+
+.check{
+  background:white;
+  border:1px solid #d1d5db;
+  border-radius:16px;
+  padding:22px;
+  margin:26px 0;
+}
+
+.check ul{
+  margin:0;
+  padding-left:20px;
+}
+
+table{
+  width:100%;
+  border-collapse:collapse;
+  background:white;
+  margin:26px 0;
+  border-radius:14px;
+  overflow:hidden;
+  box-shadow:0 8px 22px rgba(15,23,42,.06);
+}
+
+th,td{
+  border:1px solid #d1d5db;
+  padding:13px;
+  text-align:left;
+  vertical-align:top;
+}
+
+th{
+  background:#e5efff;
+  color:#111827;
+}
+
+.cta{
+  background:white;
+  border:2px solid #fed7aa;
+  border-radius:20px;
+  padding:26px;
+  margin:34px 0;
+  box-shadow:0 12px 28px rgba(249,115,22,.14);
+}
+
+.cta h2{
+  border:none;
+  padding:0;
+  margin:0 0 10px;
+  font-size:22px;
+}
+
+.cta a{
+  display:inline-block;
+  background:linear-gradient(135deg,var(--orange),#facc15);
+  color:white;
+  font-weight:bold;
+  padding:12px 18px;
+  border-radius:999px;
+  margin-top:8px;
+}
+
+.related{
+  background:#0f172a;
+  color:white;
+  border-radius:22px;
+  padding:26px;
+  margin:40px 0;
+}
+
+.related h2{
+  border:none;
+  padding:0;
+  margin:0 0 14px;
+  color:white;
+}
+
+.related a{
+  color:#93c5fd;
+  font-weight:bold;
+}
+
+footer{
+  text-align:center;
+  color:#64748b;
+  padding:30px 0 10px;
+}
+
+footer a{
+  color:var(--blue);
+  font-weight:bold;
+}
+
+@media (max-width:600px){
+  .container{padding:14px;}
+
+  .hero{
+    padding:28px 20px;
+    border-radius:20px;
+    margin:16px 0;
+  }
+
+  .hero h1{
+    font-size:25px;
+  }
+
+  .hero p{
+    font-size:14px;
+  }
+
+  h2{
+    font-size:21px;
+    margin-top:36px;
+  }
+
+  h3{
+    font-size:18px;
+  }
+
+  .summary,
+  .report,
+  .point,
+  .warning,
+  .danger,
+  .check,
+  .cta{
+    padding:18px;
+    border-radius:16px;
+  }
+
+  table{
+    font-size:13px;
+  }
+
+  th,td{
+    padding:10px;
+  }
+}
 </style>
 </head>
 
 <body>
 
 <nav>
-<a href="index.html">ホーム</a>
-<a href="articles.html">記事一覧</a>
+  <div class="container">
+    <div class="logo"><span class="logo-mark">AI</span>AI業務ラボ</div>
+    <a class="nav-link" href="articles.html">記事一覧へ</a>
+  </div>
 </nav>
 
-<h1>一人経理が辞めたら会社はどうなる？社長が最初に確認すべき10項目</h1>
+<div class="container">
 
-<div class="lead">
-<p>
-一人経理が辞めた時、最初に見るべきなのは会計ソフトではありません。
-</p>
+<section class="hero">
+  <div class="kicker">経営者向け実務レポート</div>
+  <h1>一人経理が辞めたら会社はどうなる？社長が最初に確認すべき10項目</h1>
+  <p>
+    一人経理の退職で本当に困るのは、会計ソフトの入力ではありません。
+    会社のお金の流れ・期限・権限が見えなくなることです。
+  </p>
+</section>
 
-<p>
-まず確認すべきなのは、会社のお金の流れ・期限・権限です。
-</p>
-
-<p>
-請求書は作れます。会計ソフトも入力できます。税理士にも相談できます。
-しかし、どの取引先にいつ請求するのか、どの支払いがいつあるのか、誰がネットバンクを管理しているのかが分からなければ、会社はすぐに混乱します。
-</p>
+<div class="summary">
+  <h2>この記事で分かること</h2>
+  <ul>
+    <li>一人経理が辞めた時に本当に困ること</li>
+    <li>社長が最初に確認すべき10項目</li>
+    <li>翌月に表面化しやすいミス</li>
+    <li>社長が経理を抱え込む危険性</li>
+    <li>freee・マネーフォワード・Nottaをどう使うべきか</li>
+  </ul>
 </div>
 
-<div class="report">
-<h2>この記事で分かること</h2>
-<ul>
-<li>一人経理が辞めた時に本当に困ること</li>
-<li>社長が最初に確認すべき10項目</li>
-<li>翌月に表面化しやすいミス</li>
-<li>社長が経理を抱え込む危険性</li>
-<li>freee・マネーフォワード・Nottaをどう使うべきか</li>
-</ul>
+<div class="point">
+  <p>
+    <strong>先に結論です。</strong><br>
+    経理担当が辞めること自体が問題ではありません。
+    経理担当しか分からない状態が問題です。
+  </p>
 </div>
 
 <h2>一人経理が辞めると何が起きるのか</h2>
@@ -100,11 +419,11 @@ footer{margin-top:55px;padding-top:25px;border-top:1px solid #d1d5db;text-align:
 </tr>
 </table>
 
-<div class="point">
-<p>
-経理担当が辞めるということは、入力する人がいなくなることではありません。
-会社のお金の流れを把握している人がいなくなることです。
-</p>
+<div class="warning">
+  <p>
+    経理担当が辞めるということは、入力する人がいなくなることではありません。
+    会社のお金の流れを把握している人がいなくなることです。
+  </p>
 </div>
 
 <h2>引き継ぎなしで困るのは「作業」ではない</h2>
@@ -199,10 +518,10 @@ footer{margin-top:55px;padding-top:25px;border-top:1px solid #d1d5db;text-align:
 </table>
 
 <div class="danger">
-<p>
-危険なのは「今月はなんとか回ったから大丈夫」と思うことです。
-経理のミスは翌月、翌々月、決算前に表面化することがあります。
-</p>
+  <p>
+    危険なのは「今月はなんとか回ったから大丈夫」と思うことです。
+    経理のミスは翌月、翌々月、決算前に表面化することがあります。
+  </p>
 </div>
 
 <h2>引き継ぎはメモだけでは足りない</h2>
@@ -217,21 +536,19 @@ footer{margin-top:55px;padding-top:25px;border-top:1px solid #d1d5db;text-align:
 </p>
 
 <div class="warning">
-<p>
-引き継ぎでは、説明内容を録音し、文字起こしして残しておくと後から確認しやすくなります。
-経理の引き継ぎは一度聞いただけで理解できるものではありません。
-</p>
+  <p>
+    引き継ぎでは、説明内容を録音し、文字起こしして残しておくと後から確認しやすくなります。
+    経理の引き継ぎは一度聞いただけで理解できるものではありません。
+  </p>
 </div>
 
 <div class="cta">
-<h2>引き継ぎ内容を残すならNotta</h2>
-<p>
-退職前の説明や引き継ぎ内容を録音・文字起こしして残すなら、Nottaが候補になります。
-後から見返せる形にしておくことで、聞き漏れや確認漏れを減らせます。
-</p>
-<p>
-<a href="https://px.a8.net/svt/ejp?a8mat=4B5WG8+9PHGVM+5988+5YJRM" rel="nofollow">議事録作成の手間を大幅に軽減【Notta】</a>
-</p>
+  <h2>引き継ぎ内容を残すならNotta</h2>
+  <p>
+    退職前の説明や引き継ぎ内容を録音・文字起こしして残すなら、Nottaが候補になります。
+    後から見返せる形にしておくことで、聞き漏れや確認漏れを減らせます。
+  </p>
+  <a href="https://px.a8.net/svt/ejp?a8mat=4B5WG8+9PHGVM+5988+5YJRM" rel="nofollow">議事録作成の手間を大幅に軽減【Notta】</a>
 </div>
 
 <h2>翌月に表面化しやすいミス</h2>
@@ -257,8 +574,13 @@ footer{margin-top:55px;padding-top:25px;border-top:1px solid #d1d5db;text-align:
 経理は毎日だけで完結する仕事ではありません。
 月次、年次、決算、納税まで続いています。
 </p>
-```
-```html
+
+</footer>
+
+</body>
+</html>
+
+
 <h2>社長が経理を抱えると何が起きるのか</h2>
 
 <p>
@@ -293,10 +615,10 @@ footer{margin-top:55px;padding-top:25px;border-top:1px solid #d1d5db;text-align:
 </tr>
 </table>
 
-<div class="warning">
+<div class="danger">
 <p>
 社長が経理をやること自体が悪いわけではありません。
-問題は、社長が経理作業に追われて、営業・採用・資金繰り・仕組み作りの時間を失うことです。
+問題は、社長が経理作業に追われて営業・採用・資金繰りの時間を失うことです。
 </p>
 </div>
 
@@ -307,94 +629,89 @@ footer{margin-top:55px;padding-top:25px;border-top:1px solid #d1d5db;text-align:
 </p>
 
 <p>
-しかし、会計ソフトを入れる前にやるべきことがあります。
+しかし、会計ソフトを入れる前に整理すべきことがあります。
 </p>
 
 <div class="check">
 <ul>
-<li>請求書の発行ルールを確認する</li>
-<li>未入金一覧を作る</li>
-<li>支払予定一覧を作る</li>
-<li>税理士へ渡す資料を確認する</li>
-<li>銀行口座・カード・借入の一覧を作る</li>
-<li>月次スケジュールを作る</li>
+<li>請求書の発行ルール確認</li>
+<li>未入金一覧作成</li>
+<li>支払予定一覧作成</li>
+<li>税理士提出資料確認</li>
+<li>銀行口座一覧作成</li>
+<li>月次スケジュール作成</li>
 </ul>
 </div>
 
+<div class="point">
 <p>
-これらを整理してからクラウド会計ソフトを使うと効果が出ます。
+ツール導入より先に、業務の見える化です。
+ここを飛ばすと会計ソフトを入れても混乱します。
 </p>
+</div>
 
 <h2>社長が経理も見るならfreee</h2>
 
 <p>
-社長が経理も見る会社では、できるだけ入力や確認作業を減らすことが重要です。
+社長自身が経理も担当する会社では、できるだけ入力や確認作業を減らすことが重要です。
 </p>
 
-<p>
-freeeは、少人数の会社や、経理担当がいない会社で候補になります。
-</p>
-
-<div class="point">
+<div class="report">
+<h3>freeeが向いている会社</h3>
 <ul>
 <li>社長が経理も見る</li>
-<li>経理担当がいない</li>
+<li>経理担当者がいない</li>
 <li>請求書や経費をまとめて管理したい</li>
-<li>なるべく簡単にクラウド会計を始めたい</li>
+<li>なるべく簡単に始めたい</li>
 </ul>
 </div>
 
 <div class="cta">
-<h2>社長が経理も見るならfreeeを確認</h2>
+<h2>まずはfreeeを確認する</h2>
 <p>
 経理担当がいない会社や、まずは簡単にクラウド会計を始めたい会社はfreeeを確認してみてください。
 </p>
-<p>
+
 <a href="https://px.a8.net/svt/ejp?a8mat=4B5VOE+66O50Y+3SPO+9FL80Y" rel="nofollow">
 まずは無料でお試し【freee会計】
 </a>
-</p>
 </div>
 
 <h2>税理士連携や管理体制を重視するならマネーフォワード</h2>
 
 <p>
-経理担当者がいる会社や、税理士と細かくやり取りしたい会社では、マネーフォワードも候補になります。
+経理担当者がいる会社や、税理士と細かく連携したい会社ではマネーフォワードも候補になります。
 </p>
 
-<p>
-一人経理が辞めた後、次の担当者を入れる予定がある場合や、管理体制を整えたい場合は、単に簡単さだけで選ばない方が良いこともあります。
-</p>
-
-<div class="point">
+<div class="report">
+<h3>マネーフォワードが向いている会社</h3>
 <ul>
 <li>税理士と連携したい</li>
 <li>経理担当者を置く予定がある</li>
-<li>会計の流れを細かく確認したい</li>
-<li>将来的に管理体制を整えたい</li>
+<li>管理体制を整えたい</li>
+<li>会計データを細かく確認したい</li>
 </ul>
 </div>
 
 <div class="cta">
-<h2>管理体制を整えるならマネーフォワードを確認</h2>
+<h2>マネーフォワードを確認する</h2>
 <p>
-税理士連携や管理体制を重視する場合は、マネーフォワードも確認しておきましょう。
+税理士連携や管理体制を重視する会社は、マネーフォワードも比較しておきましょう。
 </p>
-<p>
+
 <a href="https://px.a8.net/svt/ejp?a8mat=4B5VOE+6MQUCY+3SPO+8RK61U" rel="nofollow">
-マネーフォワード【マネーフォワード クラウド】
+マネーフォワード クラウド
 </a>
-</p>
 </div>
 
 <h2>経理を属人化させない仕組み</h2>
 
 <p>
-一人経理が辞めて困る会社は、経理担当が悪いわけではありません。
+一人経理が辞めて困る会社は、経理担当者が悪いわけではありません。
 </p>
 
 <p>
-問題は、経理担当しか分からない状態になっていることです。
+問題は、経理担当者しか分からない状態になっていることです。
 </p>
 
 <div class="danger">
@@ -403,10 +720,6 @@ freeeは、少人数の会社や、経理担当がいない会社で候補にな
 経理担当しか分からない状態が問題です。
 </p>
 </div>
-
-<p>
-次に同じことを繰り返さないためには、属人化を減らす必要があります。
-</p>
 
 <table>
 <tr>
@@ -419,11 +732,11 @@ freeeは、少人数の会社や、経理担当がいない会社で候補にな
 </tr>
 <tr>
 <td>担当者だけがネットバンクを操作できる</td>
-<td>権限者とログイン管理を整理する</td>
+<td>権限者を整理する</td>
 </tr>
 <tr>
 <td>担当者だけが税理士対応をしている</td>
-<td>税理士提出資料一覧を作る</td>
+<td>提出資料一覧を作る</td>
 </tr>
 <tr>
 <td>担当者だけが未入金を把握している</td>
@@ -437,89 +750,94 @@ freeeは、少人数の会社や、経理担当がいない会社で候補にな
 
 <h2>一人経理退職後の対応順</h2>
 
-<p>
-一人経理が辞めた時は、焦って新しいツールを入れる前に、次の順番で進めるのが安全です。
-</p>
-
+<div class="check">
 <ol>
-<li>ネットバンク・会計ソフト・給与ソフトの権限確認</li>
-<li>請求書・未入金・支払予定の確認</li>
-<li>給与・税金・社会保険の期限確認</li>
-<li>税理士へ連絡し、必要資料を確認</li>
-<li>引き継ぎ内容を録音・文字起こしで残す</li>
-<li>月次業務カレンダーを作る</li>
-<li>クラウド会計ソフトの導入・見直し</li>
+<li>ネットバンク・会計ソフト権限確認</li>
+<li>請求書・未入金・支払予定確認</li>
+<li>給与・税金・社会保険期限確認</li>
+<li>税理士へ連絡</li>
+<li>引き継ぎ内容を録音・文字起こし</li>
+<li>月次業務カレンダー作成</li>
+<li>クラウド会計導入・見直し</li>
 </ol>
+</div>
 
 <div class="point">
 <p>
-順番は「権限」「期限」「お金の流れ」「仕組み化」です。
-この順番を間違えると、ツールを入れても混乱します。
+順番は「権限 → 期限 → お金の流れ → 仕組み化」です。
+この順番を間違えると、ツールを入れても解決しません。
 </p>
 </div>
 
 <h2>最終結論</h2>
 
+<div class="report">
 <p>
 一人経理が辞めた時、最初に確認すべきなのは会計ソフトではありません。
 </p>
 
 <p>
-まず見るべきなのは、会社のお金の流れ・期限・権限です。
+まず確認するべきは、
+<strong>会社のお金の流れ・期限・権限</strong>
+です。
 </p>
 
 <p>
-請求書、未入金、支払予定、給与、税金、税理士資料、ネットバンク、会計ソフトの権限を確認する。
+請求書、未入金、支払予定、給与、税金、税理士資料、ネットバンク権限を整理する。
 </p>
 
 <p>
 その上で、引き継ぎ内容を記録し、業務を見える化し、クラウド会計やAIを活用する。
 </p>
-
-<div class="box">
-<p>
-経理担当が辞めることが問題ではありません。
-経理担当しか分からない状態が問題です。
-</p>
 </div>
 
-<p>
-一人経理の退職は大きなリスクです。
-しかし見方を変えれば、経理の仕組みを作り直すチャンスでもあります。
-</p>
-
 <div class="cta">
-<h2>経理引き継ぎ後に確認したいツール</h2>
+<h2>この記事で紹介したツール</h2>
+
 <p>
 引き継ぎ、経理整理、クラウド会計を進める時に確認しておきたいツールです。
 </p>
 
 <p>
-<a href="https://px.a8.net/svt/ejp?a8mat=4B5WG8+9PHGVM+5988+5YJRM" rel="nofollow">議事録作成の手間を大幅に軽減【Notta】</a>
+<a href="https://px.a8.net/svt/ejp?a8mat=4B5WG8+9PHGVM+5988+5YJRM" rel="nofollow">
+Notta
+</a>
 </p>
 
 <p>
-<a href="https://px.a8.net/svt/ejp?a8mat=4B5VOE+66O50Y+3SPO+9FL80Y" rel="nofollow">まずは無料でお試し【freee会計】</a>
+<a href="https://px.a8.net/svt/ejp?a8mat=4B5VOE+66O50Y+3SPO+9FL80Y" rel="nofollow">
+freee会計
+</a>
 </p>
 
 <p>
-<a href="https://px.a8.net/svt/ejp?a8mat=4B5VOE+6MQUCY+3SPO+8RK61U" rel="nofollow">マネーフォワード【マネーフォワード クラウド】</a>
+<a href="https://px.a8.net/svt/ejp?a8mat=4B5VOE+6MQUCY+3SPO+8RK61U" rel="nofollow">
+マネーフォワード クラウド
+</a>
 </p>
+
 </div>
 
+<div class="related">
 <h2>関連記事</h2>
+
 <ul>
 <li><a href="jimuin-taishoku-ai.html">事務員が辞めた会社が最初にやるべき5つのこと</a></li>
 <li><a href="freee-vs-moneyforward.html">freeeとマネーフォワードはどちらを選ぶべきか</a></li>
 <li><a href="ai-gijiroku-tools-hikaku.html">AI議事録ツールおすすめ比較</a></li>
-<li><a href="ai-keiri.html">社長が経理を引き継ぐと何が起きるのか</a></li>
+<li><a href="ai-keiri.html">AIで経理業務を効率化する方法</a></li>
 </ul>
+
+</div>
 
 <footer>
 <p><a href="articles.html">記事一覧へ戻る</a></p>
 <p><a href="index.html">トップページへ戻る</a></p>
+<p>© 2026 AI業務ラボ</p>
 </footer>
+
+</div>
 
 </body>
 </html>
-```
+
