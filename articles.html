@@ -1,199 +1,348 @@
-```html
 <!DOCTYPE html>
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>記事一覧｜AI業務ラボ</title>
-<meta name="description" content="AI業務ラボの記事一覧ページです。中小企業の事務・経理・議事録・業務効率化をAIで改善する方法を解説しています。">
+<meta name="description" content="AI業務ラボの記事一覧ページです。中小企業の事務・経理・議事録・会計ソフト・業務効率化を社長目線で解説しています。">
 
 <style>
+:root{
+  --navy:#0f172a;
+  --blue:#2563eb;
+  --sky:#dbeafe;
+  --orange:#f97316;
+  --orange-light:#ffedd5;
+  --green:#16a34a;
+  --green-light:#dcfce7;
+  --purple:#7c3aed;
+  --purple-light:#ede9fe;
+  --gray:#64748b;
+  --line:#e5e7eb;
+  --bg:#f3f6fb;
+  --white:#ffffff;
+}
+
+*{
+  box-sizing:border-box;
+}
+
 body{
   margin:0;
   font-family:Arial,"Yu Gothic",sans-serif;
-  background:#f3f6fb;
+  background:
+    radial-gradient(circle at top left,rgba(249,115,22,.14),transparent 30%),
+    linear-gradient(180deg,#f8fbff 0%,#edf3ff 100%);
   color:#1f2937;
-  line-height:1.7;
+  line-height:1.65;
+}
+
+a{
+  color:inherit;
+  text-decoration:none;
 }
 
 .container{
-  max-width:1050px;
+  max-width:1120px;
   margin:auto;
-  padding:20px;
+  padding:18px;
 }
 
 nav{
-  background:#ffffff;
-  border-bottom:1px solid #e5e7eb;
+  background:rgba(255,255,255,.92);
+  border-bottom:1px solid var(--line);
+  position:sticky;
+  top:0;
+  z-index:10;
+  backdrop-filter:blur(10px);
 }
 
 nav .container{
   display:flex;
   justify-content:space-between;
   align-items:center;
-  padding-top:14px;
-  padding-bottom:14px;
+  padding-top:12px;
+  padding-bottom:12px;
 }
 
 .logo{
+  display:flex;
+  align-items:center;
+  gap:8px;
   font-weight:bold;
-  color:#0f172a;
+  color:var(--navy);
   font-size:18px;
 }
 
-nav a{
-  color:#2563eb;
+.logo-mark{
+  background:linear-gradient(135deg,var(--orange),#facc15);
+  color:white;
+  width:30px;
+  height:30px;
+  border-radius:9px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
   font-weight:bold;
-  text-decoration:none;
+}
+
+.nav-link{
+  color:var(--blue);
+  font-weight:bold;
+  font-size:14px;
 }
 
 .hero{
-  background:linear-gradient(135deg,#0f172a,#1d4ed8);
+  background:
+    linear-gradient(135deg,#0f172a 0%,#1e3a8a 58%,#2563eb 100%);
   color:#fff;
-  padding:34px 22px;
-  border-radius:18px;
-  margin:24px 0;
+  border-radius:24px;
+  padding:36px 28px;
+  margin:24px 0 20px;
+  box-shadow:0 20px 50px rgba(37,99,235,.28);
+  position:relative;
+  overflow:hidden;
+}
+
+.hero:after{
+  content:"";
+  position:absolute;
+  right:-70px;
+  top:-70px;
+  width:220px;
+  height:220px;
+  background:rgba(249,115,22,.28);
+  border-radius:50%;
+}
+
+.hero-kicker{
+  display:inline-block;
+  background:rgba(255,255,255,.14);
+  border:1px solid rgba(255,255,255,.25);
+  padding:5px 12px;
+  border-radius:999px;
+  font-size:13px;
+  font-weight:bold;
+  margin-bottom:12px;
 }
 
 .hero h1{
-  font-size:30px;
+  font-size:32px;
   line-height:1.35;
   margin:0 0 12px;
+  max-width:760px;
 }
 
 .hero p{
   margin:0;
   color:#dbeafe;
+  max-width:780px;
+}
+
+.quick-nav{
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+  margin:18px 0 8px;
+}
+
+.quick-nav a{
+  background:#fff;
+  color:var(--navy);
+  border:1px solid var(--line);
+  padding:8px 12px;
+  border-radius:999px;
+  font-size:13px;
+  font-weight:bold;
+  box-shadow:0 3px 10px rgba(15,23,42,.05);
 }
 
 .section-title{
-  font-size:20px;
+  display:flex;
+  align-items:center;
+  gap:10px;
+  font-size:21px;
   margin:34px 0 14px;
-  border-left:6px solid #2563eb;
-  padding-left:12px;
-  color:#0f172a;
+  color:var(--navy);
+}
+
+.section-title:before{
+  content:"";
+  width:8px;
+  height:28px;
+  border-radius:999px;
+  background:linear-gradient(180deg,var(--orange),#facc15);
 }
 
 .featured{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-  gap:14px;
-  margin-bottom:24px;
+  grid-template-columns:repeat(3,1fr);
+  gap:16px;
+  margin-bottom:28px;
 }
 
 .feature-card{
-  background:#fff;
-  border:1px solid #dbeafe;
-  border-top:5px solid #2563eb;
-  border-radius:14px;
-  padding:16px;
-  box-shadow:0 4px 14px rgba(15,23,42,.06);
+  background:linear-gradient(180deg,#fff,#f8fafc);
+  border-radius:20px;
+  padding:18px;
+  box-shadow:0 12px 28px rgba(15,23,42,.10);
+  border:1px solid rgba(255,255,255,.8);
+  position:relative;
+  overflow:hidden;
+  min-height:170px;
 }
 
-.feature-card .rank{
-  font-size:13px;
-  color:#b45309;
+.feature-card:before{
+  content:"";
+  position:absolute;
+  inset:0 0 auto 0;
+  height:7px;
+}
+
+.feature-card.gold:before{background:linear-gradient(90deg,#f59e0b,#facc15);}
+.feature-card.silver:before{background:linear-gradient(90deg,#6b7280,#d1d5db);}
+.feature-card.bronze:before{background:linear-gradient(90deg,#ea580c,#fdba74);}
+
+.feature-card:hover{
+  transform:translateY(-3px);
+  transition:.2s;
+}
+
+.rank{
+  display:inline-block;
+  font-size:12px;
   font-weight:bold;
-  margin-bottom:6px;
+  color:#92400e;
+  background:#fef3c7;
+  padding:4px 9px;
+  border-radius:999px;
+  margin:6px 0 10px;
 }
 
 .feature-card h2{
   font-size:18px;
   line-height:1.45;
   margin:0 0 8px;
+  color:var(--navy);
 }
 
 .feature-card p{
   font-size:14px;
   margin:0;
-  color:#4b5563;
+  color:#475569;
 }
 
 .category{
-  background:#fff;
-  border:1px solid #e5e7eb;
-  border-radius:16px;
-  padding:18px;
+  background:rgba(255,255,255,.95);
+  border:1px solid rgba(226,232,240,.9);
+  border-radius:22px;
+  padding:20px;
   margin:22px 0;
-  box-shadow:0 4px 14px rgba(15,23,42,.04);
+  box-shadow:0 10px 28px rgba(15,23,42,.06);
 }
 
 .category-head{
   display:flex;
   justify-content:space-between;
-  align-items:center;
-  gap:12px;
-  border-bottom:1px solid #e5e7eb;
-  padding-bottom:10px;
-  margin-bottom:10px;
+  align-items:flex-start;
+  gap:14px;
+  padding-bottom:12px;
+  margin-bottom:12px;
+  border-bottom:1px solid var(--line);
 }
 
 .category h2{
-  font-size:19px;
+  font-size:20px;
   margin:0;
-  color:#0f172a;
+  color:var(--navy);
 }
 
 .category .note{
   font-size:13px;
-  color:#6b7280;
+  color:#64748b;
+  margin-top:2px;
 }
 
 .article-list{
   display:grid;
-  grid-template-columns:1fr;
-  gap:8px;
+  grid-template-columns:repeat(2,1fr);
+  gap:10px;
 }
 
 .article{
   display:block;
   background:#f8fafc;
-  border:1px solid #e5e7eb;
-  border-radius:12px;
-  padding:12px 14px;
-  text-decoration:none;
+  border:1px solid #e2e8f0;
+  border-left:6px solid #dbeafe;
+  border-radius:14px;
+  padding:13px 14px;
   color:#1f2937;
 }
 
 .article:hover{
   background:#eef6ff;
   border-color:#93c5fd;
-  text-decoration:none;
+  transform:translateY(-1px);
+  transition:.2s;
 }
 
-.article .tag{
+.article.keiri{border-left-color:var(--green);}
+.article.ai{border-left-color:var(--blue);}
+.article.chatgpt{border-left-color:var(--purple);}
+.article.software{border-left-color:var(--orange);}
+.article.business{border-left-color:#0f172a;}
+
+.tag{
   display:inline-block;
   font-size:12px;
   font-weight:bold;
-  color:#1d4ed8;
-  background:#dbeafe;
-  padding:2px 8px;
+  color:#fff;
+  padding:3px 10px;
   border-radius:999px;
-  margin-bottom:5px;
+  margin-bottom:6px;
 }
+
+.tag.keiri{background:var(--green);}
+.tag.ai{background:var(--blue);}
+.tag.chatgpt{background:var(--purple);}
+.tag.software{background:var(--orange);}
+.tag.business{background:var(--navy);}
 
 .article h3{
   font-size:16px;
   line-height:1.45;
-  margin:0 0 4px;
-  color:#0f172a;
+  margin:0 0 5px;
+  color:var(--navy);
 }
 
 .article p{
   font-size:13px;
-  color:#4b5563;
+  color:#475569;
   margin:0;
 }
 
 .footer-link{
   text-align:center;
-  margin:36px 0 10px;
+  margin:38px 0 12px;
 }
 
 .footer-link a{
-  color:#2563eb;
+  display:inline-block;
+  background:var(--navy);
+  color:white;
   font-weight:bold;
-  text-decoration:none;
+  padding:12px 18px;
+  border-radius:999px;
+}
+
+@media (max-width:800px){
+  .featured{
+    grid-template-columns:1fr;
+  }
+
+  .article-list{
+    grid-template-columns:1fr;
+  }
 }
 
 @media (max-width:600px){
@@ -201,8 +350,14 @@ nav a{
     padding:14px;
   }
 
+  nav .container{
+    padding-top:10px;
+    padding-bottom:10px;
+  }
+
   .hero{
-    padding:24px 18px;
+    padding:26px 18px;
+    border-radius:18px;
     margin:16px 0;
   }
 
@@ -210,22 +365,38 @@ nav a{
     font-size:24px;
   }
 
-  .featured{
-    grid-template-columns:1fr;
-    gap:10px;
+  .quick-nav{
+    overflow-x:auto;
+    flex-wrap:nowrap;
+    padding-bottom:4px;
+  }
+
+  .quick-nav a{
+    white-space:nowrap;
+  }
+
+  .section-title{
+    font-size:19px;
+    margin-top:26px;
   }
 
   .feature-card{
-    padding:14px;
+    padding:15px;
+    min-height:auto;
   }
 
   .feature-card h2{
     font-size:16px;
   }
 
+  .feature-card p{
+    font-size:13px;
+  }
+
   .category{
     padding:14px;
     margin:16px 0;
+    border-radius:16px;
   }
 
   .category-head{
@@ -247,6 +418,11 @@ nav a{
   .article p{
     display:none;
   }
+
+  .tag{
+    font-size:11px;
+    padding:2px 8px;
+  }
 }
 </style>
 </head>
@@ -255,35 +431,46 @@ nav a{
 
 <nav>
   <div class="container">
-    <div class="logo">AI業務ラボ</div>
-    <a href="index.html">ホームへ戻る</a>
+    <div class="logo"><span class="logo-mark">AI</span>AI業務ラボ</div>
+    <a class="nav-link" href="index.html">ホームへ戻る</a>
   </div>
 </nav>
 
 <div class="container">
 
 <section class="hero">
-  <h1>中小企業のためのAI業務改善記事一覧</h1>
-  <p>事務・経理・議事録・会計ソフト・業務効率化を、社長目線でわかりやすく整理しています。</p>
+  <div class="hero-kicker">中小企業・少人数会社向け</div>
+  <h1>事務・経理・会議の悩みをAIで軽くする記事一覧</h1>
+  <p>
+    AI業務ラボは、社長目線で「何から手を付ければいいか」を整理する実務メディアです。
+    経理の引き継ぎ、事務員退職、議事録作成、会計ソフト選びまで解説します。
+  </p>
 </section>
 
-<h2 class="section-title">まず読んでほしい記事</h2>
+<div class="quick-nav">
+  <a href="#keiri">経理・事務</a>
+  <a href="#software">会計ソフト</a>
+  <a href="#gijiroku">AI議事録</a>
+  <a href="#chatgpt">ChatGPT活用</a>
+</div>
+
+<h2 class="section-title">まず読んでほしい重要記事</h2>
 
 <div class="featured">
 
-  <a class="feature-card" href="hitori-keiri-taishoku.html">
+  <a class="feature-card gold" href="hitori-keiri-taishoku.html">
     <div class="rank">重要記事 01</div>
     <h2>一人経理が辞めたら会社はどうなる？</h2>
-    <p>社長が最初に確認すべき10項目を整理。</p>
+    <p>社長が最初に確認すべき10項目を整理。経理の属人化対策にも。</p>
   </a>
 
-  <a class="feature-card" href="jimuin-taishoku-ai.html">
+  <a class="feature-card silver" href="jimuin-taishoku-ai.html">
     <div class="rank">重要記事 02</div>
     <h2>事務員が辞めた会社が最初にやるべきこと</h2>
     <p>業務整理・AI活用・クラウド化の流れを解説。</p>
   </a>
 
-  <a class="feature-card" href="freee-vs-moneyforward.html">
+  <a class="feature-card bronze" href="freee-vs-moneyforward.html">
     <div class="rank">比較記事 03</div>
     <h2>freeeとマネーフォワードはどちらを選ぶべきか</h2>
     <p>会社規模・担当者の性格・会社文化で比較。</p>
@@ -291,159 +478,174 @@ nav a{
 
 </div>
 
-<section class="category">
+<section class="category" id="keiri">
   <div class="category-head">
-    <h2>経理・事務の引き継ぎ</h2>
-    <div class="note">社長・小規模会社向け</div>
+    <div>
+      <h2>経理・事務の引き継ぎ</h2>
+      <div class="note">事務員退職・一人経理・社長の引き継ぎ対策</div>
+    </div>
   </div>
 
   <div class="article-list">
-    <a class="article" href="hitori-keiri-taishoku.html">
-      <span class="tag">経理</span>
+    <a class="article keiri" href="hitori-keiri-taishoku.html">
+      <span class="tag keiri">経理</span>
       <h3>一人経理が辞めたら会社はどうなる？社長が最初に確認すべき10項目</h3>
       <p>ネットバンク、請求書、未入金、支払予定、税理士対応まで整理します。</p>
     </a>
 
-    <a class="article" href="jimuin-taishoku-ai.html">
-      <span class="tag">事務</span>
+    <a class="article business" href="jimuin-taishoku-ai.html">
+      <span class="tag business">事務</span>
       <h3>事務員が辞めた会社が最初にやるべき5つのこと</h3>
       <p>業務棚卸し、マニュアル化、AI活用、クラウド化の順番を解説します。</p>
     </a>
 
-    <a class="article" href="jimuin-yameta.html">
-      <span class="tag">事務</span>
+    <a class="article business" href="jimuin-yameta.html">
+      <span class="tag business">事務</span>
       <h3>事務員が辞めた会社が最初にやるべき5つのこと</h3>
       <p>事務員退職時の対応方法を解説します。</p>
     </a>
 
-    <a class="article" href="ai-jimuin.html">
-      <span class="tag">AI事務</span>
+    <a class="article business" href="ai-jimuin.html">
+      <span class="tag business">AI事務</span>
       <h3>AI事務員とは？導入メリットと注意点</h3>
       <p>AI事務員の仕組みや導入メリットを解説します。</p>
     </a>
   </div>
 </section>
-
-<section class="category">
+```
+  ```html
+<section class="category" id="software">
   <div class="category-head">
-    <h2>会計ソフト・経理効率化</h2>
-    <div class="note">freee・マネーフォワード導線</div>
+    <div>
+      <h2>会計ソフト・経理効率化</h2>
+      <div class="note">freee・マネーフォワード比較と経理効率化</div>
+    </div>
   </div>
 
   <div class="article-list">
-    <a class="article" href="freee-vs-moneyforward.html">
-      <span class="tag">比較</span>
+
+    <a class="article software" href="freee-vs-moneyforward.html">
+      <span class="tag software">比較</span>
       <h3>freeeとマネーフォワードはどちらを選ぶべきか</h3>
       <p>会社規模・担当者の性格・会社文化から選び方を解説します。</p>
     </a>
 
-    <a class="article" href="ai-keiri.html">
-      <span class="tag">経理</span>
+    <a class="article keiri" href="ai-keiri.html">
+      <span class="tag keiri">経理</span>
       <h3>AIで経理業務を効率化する方法</h3>
       <p>請求書整理や経費管理など経理業務の効率化方法を解説します。</p>
     </a>
 
-    <a class="article" href="ai-seikyusho.html">
-      <span class="tag">請求書</span>
+    <a class="article software" href="ai-seikyusho.html">
+      <span class="tag software">請求書</span>
       <h3>AIで請求書作成を効率化する方法</h3>
       <p>AIを活用した請求書作成の効率化方法を解説します。</p>
     </a>
+
   </div>
 </section>
 
-<section class="category">
+<section class="category" id="gijiroku">
   <div class="category-head">
-    <h2>AI議事録・会議記録</h2>
-    <div class="note">Notta・PLAUD導線</div>
+    <div>
+      <h2>AI議事録・会議記録</h2>
+      <div class="note">Notta・PLAUD・Notta Memo比較</div>
+    </div>
   </div>
 
   <div class="article-list">
-    <a class="article" href="ai-gijiroku-tools-hikaku.html">
-      <span class="tag">比較</span>
+
+    <a class="article ai" href="ai-gijiroku-tools-hikaku.html">
+      <span class="tag ai">比較</span>
       <h3>AI議事録ツールおすすめ比較｜PLAUD・Notta・Notta Memoはどれを選ぶべきか</h3>
       <p>営業・経営者・事務担当向けにAI議事録ツールを比較します。</p>
     </a>
 
-    <a class="article" href="ai-gijiroku.html">
-      <span class="tag">議事録</span>
+    <a class="article ai" href="ai-gijiroku.html">
+      <span class="tag ai">議事録</span>
       <h3>AIで議事録作成を効率化する方法</h3>
       <p>会議後の議事録作成を効率化します。</p>
     </a>
+
   </div>
 </section>
 
-<section class="category">
+<section class="category" id="chatgpt">
   <div class="category-head">
-    <h2>ChatGPT・業務効率化</h2>
-    <div class="note">日常業務の時短</div>
+    <div>
+      <h2>ChatGPT・AI業務効率化</h2>
+      <div class="note">中小企業向け業務改善ガイド</div>
+    </div>
   </div>
 
   <div class="article-list">
-    <a class="article" href="gyomukouritsuka-guide.html">
-      <span class="tag">業務改善</span>
+
+    <a class="article chatgpt" href="gyomukouritsuka-guide.html">
+      <span class="tag chatgpt">業務改善</span>
       <h3>少人数会社の業務効率化完全ガイド</h3>
       <p>少人数でも利益を伸ばす業務改善を解説します。</p>
     </a>
 
-    <a class="article" href="chatgpt-nyumon.html">
-      <span class="tag">ChatGPT</span>
+    <a class="article chatgpt" href="chatgpt-nyumon.html">
+      <span class="tag chatgpt">ChatGPT</span>
       <h3>中小企業がChatGPTを導入する方法</h3>
       <p>ChatGPT導入の手順と活用事例を紹介します。</p>
     </a>
 
-    <a class="article" href="chatgpt-gyomukouritsuka.html">
-      <span class="tag">ChatGPT</span>
+    <a class="article chatgpt" href="chatgpt-gyomukouritsuka.html">
+      <span class="tag chatgpt">ChatGPT</span>
       <h3>ChatGPTで業務効率化する方法</h3>
       <p>ChatGPTを活用した業務効率化の実践方法を解説します。</p>
     </a>
 
-    <a class="article" href="chatgpt-mitsumori.html">
-      <span class="tag">見積書</span>
+    <a class="article software" href="chatgpt-mitsumori.html">
+      <span class="tag software">見積書</span>
       <h3>ChatGPTで見積書作成を効率化する方法</h3>
       <p>見積書作成時間を短縮する方法を紹介します。</p>
     </a>
 
-    <a class="article" href="ai-mail.html">
-      <span class="tag">メール</span>
+    <a class="article ai" href="ai-mail.html">
+      <span class="tag ai">メール</span>
       <h3>AIでメール対応を効率化する方法</h3>
       <p>メール対応時間を削減する方法を解説します。</p>
     </a>
 
-    <a class="article" href="ai-nippo.html">
-      <span class="tag">日報</span>
+    <a class="article ai" href="ai-nippo.html">
+      <span class="tag ai">日報</span>
       <h3>AIで日報作成を効率化する方法</h3>
       <p>AIを活用した日報作成の効率化を解説します。</p>
     </a>
 
-    <a class="article" href="ai-kokyakukanri.html">
-      <span class="tag">顧客管理</span>
+    <a class="article ai" href="ai-kokyakukanri.html">
+      <span class="tag ai">顧客管理</span>
       <h3>AIで顧客管理を効率化する方法</h3>
       <p>顧客情報や問い合わせ履歴の管理を効率化する方法を解説します。</p>
     </a>
 
-    <a class="article" href="ai-sagyohokokusho.html">
-      <span class="tag">報告書</span>
+    <a class="article ai" href="ai-sagyohokokusho.html">
+      <span class="tag ai">報告書</span>
       <h3>AIで作業報告書を作る方法</h3>
       <p>AIを活用した作業報告書作成の効率化について解説します。</p>
     </a>
 
-    <a class="article" href="ai-eigyomail.html">
-      <span class="tag">営業</span>
+    <a class="article ai" href="ai-eigyomail.html">
+      <span class="tag ai">営業</span>
       <h3>AIで営業メールを作る方法</h3>
       <p>営業メールやフォローメールを効率的に作成する方法を紹介します。</p>
     </a>
 
-    <a class="article" href="ai-claim.html">
-      <span class="tag">クレーム</span>
+    <a class="article ai" href="ai-claim.html">
+      <span class="tag ai">クレーム</span>
       <h3>AIでクレーム対応文を作る方法</h3>
       <p>クレーム対応文や謝罪文の作成を効率化する方法を解説します。</p>
     </a>
 
-    <a class="article" href="ai-manual.html">
-      <span class="tag">マニュアル</span>
+    <a class="article ai" href="ai-manual.html">
+      <span class="tag ai">マニュアル</span>
       <h3>AIでマニュアル作成を効率化する方法</h3>
       <p>業務マニュアルや手順書を効率的に作成する方法を紹介します。</p>
     </a>
+
   </div>
 </section>
 
@@ -456,3 +658,4 @@ nav a{
 </body>
 </html>
 ```
+
