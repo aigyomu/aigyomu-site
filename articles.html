@@ -1,197 +1,458 @@
+```html
 <!DOCTYPE html>
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>記事一覧｜AI業務ラボ</title>
-<meta name="description" content="AI業務ラボの記事一覧ページです。業務効率化、ChatGPT活用、人手不足対策などを解説しています。">
+<meta name="description" content="AI業務ラボの記事一覧ページです。中小企業の事務・経理・議事録・業務効率化をAIで改善する方法を解説しています。">
 
 <style>
 body{
-max-width:1000px;
-margin:auto;
-padding:20px;
-font-family:Arial,"Yu Gothic",sans-serif;
-line-height:1.8;
-background:#f8fafc;
-color:#1f2937;
+  margin:0;
+  font-family:Arial,"Yu Gothic",sans-serif;
+  background:#f3f6fb;
+  color:#1f2937;
+  line-height:1.7;
 }
 
-h1{
-text-align:center;
-margin-bottom:40px;
+.container{
+  max-width:1050px;
+  margin:auto;
+  padding:20px;
 }
 
-.grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-gap:20px;
+nav{
+  background:#ffffff;
+  border-bottom:1px solid #e5e7eb;
 }
 
-.card{
-background:white;
-padding:24px;
-border-radius:12px;
-box-shadow:0 4px 12px rgba(0,0,0,.08);
+nav .container{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding-top:14px;
+  padding-bottom:14px;
 }
 
-.card h2{
-font-size:22px;
-margin-top:0;
+.logo{
+  font-weight:bold;
+  color:#0f172a;
+  font-size:18px;
 }
 
-a{
-color:#2563eb;
-text-decoration:none;
-font-weight:bold;
+nav a{
+  color:#2563eb;
+  font-weight:bold;
+  text-decoration:none;
 }
 
-a:hover{
-text-decoration:underline;
+.hero{
+  background:linear-gradient(135deg,#0f172a,#1d4ed8);
+  color:#fff;
+  padding:34px 22px;
+  border-radius:18px;
+  margin:24px 0;
 }
 
-.top{
-text-align:center;
-margin-top:40px;
+.hero h1{
+  font-size:30px;
+  line-height:1.35;
+  margin:0 0 12px;
+}
+
+.hero p{
+  margin:0;
+  color:#dbeafe;
+}
+
+.section-title{
+  font-size:20px;
+  margin:34px 0 14px;
+  border-left:6px solid #2563eb;
+  padding-left:12px;
+  color:#0f172a;
+}
+
+.featured{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:14px;
+  margin-bottom:24px;
+}
+
+.feature-card{
+  background:#fff;
+  border:1px solid #dbeafe;
+  border-top:5px solid #2563eb;
+  border-radius:14px;
+  padding:16px;
+  box-shadow:0 4px 14px rgba(15,23,42,.06);
+}
+
+.feature-card .rank{
+  font-size:13px;
+  color:#b45309;
+  font-weight:bold;
+  margin-bottom:6px;
+}
+
+.feature-card h2{
+  font-size:18px;
+  line-height:1.45;
+  margin:0 0 8px;
+}
+
+.feature-card p{
+  font-size:14px;
+  margin:0;
+  color:#4b5563;
+}
+
+.category{
+  background:#fff;
+  border:1px solid #e5e7eb;
+  border-radius:16px;
+  padding:18px;
+  margin:22px 0;
+  box-shadow:0 4px 14px rgba(15,23,42,.04);
+}
+
+.category-head{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:12px;
+  border-bottom:1px solid #e5e7eb;
+  padding-bottom:10px;
+  margin-bottom:10px;
+}
+
+.category h2{
+  font-size:19px;
+  margin:0;
+  color:#0f172a;
+}
+
+.category .note{
+  font-size:13px;
+  color:#6b7280;
+}
+
+.article-list{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:8px;
+}
+
+.article{
+  display:block;
+  background:#f8fafc;
+  border:1px solid #e5e7eb;
+  border-radius:12px;
+  padding:12px 14px;
+  text-decoration:none;
+  color:#1f2937;
+}
+
+.article:hover{
+  background:#eef6ff;
+  border-color:#93c5fd;
+  text-decoration:none;
+}
+
+.article .tag{
+  display:inline-block;
+  font-size:12px;
+  font-weight:bold;
+  color:#1d4ed8;
+  background:#dbeafe;
+  padding:2px 8px;
+  border-radius:999px;
+  margin-bottom:5px;
+}
+
+.article h3{
+  font-size:16px;
+  line-height:1.45;
+  margin:0 0 4px;
+  color:#0f172a;
+}
+
+.article p{
+  font-size:13px;
+  color:#4b5563;
+  margin:0;
+}
+
+.footer-link{
+  text-align:center;
+  margin:36px 0 10px;
+}
+
+.footer-link a{
+  color:#2563eb;
+  font-weight:bold;
+  text-decoration:none;
+}
+
+@media (max-width:600px){
+  .container{
+    padding:14px;
+  }
+
+  .hero{
+    padding:24px 18px;
+    margin:16px 0;
+  }
+
+  .hero h1{
+    font-size:24px;
+  }
+
+  .featured{
+    grid-template-columns:1fr;
+    gap:10px;
+  }
+
+  .feature-card{
+    padding:14px;
+  }
+
+  .feature-card h2{
+    font-size:16px;
+  }
+
+  .category{
+    padding:14px;
+    margin:16px 0;
+  }
+
+  .category-head{
+    display:block;
+  }
+
+  .category h2{
+    font-size:18px;
+  }
+
+  .article{
+    padding:10px 12px;
+  }
+
+  .article h3{
+    font-size:15px;
+  }
+
+  .article p{
+    display:none;
+  }
 }
 </style>
 </head>
 
 <body>
 
-<h1>記事一覧</h1>
+<nav>
+  <div class="container">
+    <div class="logo">AI業務ラボ</div>
+    <a href="index.html">ホームへ戻る</a>
+  </div>
+</nav>
 
-<div class="grid">
+<div class="container">
 
+<section class="hero">
+  <h1>中小企業のためのAI業務改善記事一覧</h1>
+  <p>事務・経理・議事録・会計ソフト・業務効率化を、社長目線でわかりやすく整理しています。</p>
+</section>
 
-  <div class="card">
-<h2>
-<a href="hitori-keiri-taishoku.html">
-一人経理が辞めたら会社はどうなる？社長が最初に確認すべき10項目
-</a>
-</h2>
+<h2 class="section-title">まず読んでほしい記事</h2>
 
-<p>
-一人経理が退職した時に社長が最初に確認すべきことを解説。ネットバンク、請求書、未入金、支払予定、税理士対応、freee・マネーフォワード活用まで整理します。
-</p>
-</div>
-  
-  <div class="card">
-<h2>
-<a href="jimuin-taishoku-ai.html">
-事務員が辞めた会社が最初にやるべき5つのこと｜AIとクラウド活用で会社を止めない方法
-</a>
-</h2>
+<div class="featured">
 
-<p>
-事務員退職後に社長が最初にやるべきことを解説。業務整理、マニュアル化、AI活用、freee、マネーフォワード、Nottaまで紹介します。
-</p>
-</div>
+  <a class="feature-card" href="hitori-keiri-taishoku.html">
+    <div class="rank">重要記事 01</div>
+    <h2>一人経理が辞めたら会社はどうなる？</h2>
+    <p>社長が最初に確認すべき10項目を整理。</p>
+  </a>
 
-<div class="card">
-<h2><a href="jimuin-yameta.html">事務員が辞めた会社が最初にやるべき5つのこと</a></h2>
-<p>事務員退職時の対応方法を解説します。</p>
-</div>
+  <a class="feature-card" href="jimuin-taishoku-ai.html">
+    <div class="rank">重要記事 02</div>
+    <h2>事務員が辞めた会社が最初にやるべきこと</h2>
+    <p>業務整理・AI活用・クラウド化の流れを解説。</p>
+  </a>
 
-<div class="card">
-<h2><a href="gyomukouritsuka-guide.html">少人数会社の業務効率化完全ガイド</a></h2>
-<p>少人数でも利益を伸ばす業務改善を解説します。</p>
-</div>
+  <a class="feature-card" href="freee-vs-moneyforward.html">
+    <div class="rank">比較記事 03</div>
+    <h2>freeeとマネーフォワードはどちらを選ぶべきか</h2>
+    <p>会社規模・担当者の性格・会社文化で比較。</p>
+  </a>
 
-<div class="card">
-<h2><a href="chatgpt-mitsumori.html">ChatGPTで見積書作成を効率化する方法</a></h2>
-<p>見積書作成時間を短縮する方法を紹介します。</p>
 </div>
 
-<div class="card">
-<h2><a href="ai-gijiroku.html">AIで議事録作成を効率化する方法</a></h2>
-<p>会議後の議事録作成を効率化します。</p>
-</div>
+<section class="category">
+  <div class="category-head">
+    <h2>経理・事務の引き継ぎ</h2>
+    <div class="note">社長・小規模会社向け</div>
+  </div>
 
-<div class="card">
-<h2><a href="chatgpt-nyumon.html">中小企業がChatGPTを導入する方法</a></h2>
-<p>ChatGPT導入の手順と活用事例を紹介します。</p>
-</div>
-  
-<div class="card">
-<h2><a href="chatgpt-gyomukouritsuka.html">ChatGPTで業務効率化する方法</a></h2>
-<p>ChatGPTを活用した業務効率化の実践方法を解説します。</p>
-</div>
-
-  <div class="card">
-<h2><a href="ai-jimuin.html">AI事務員とは？導入メリットと注意点</a></h2>
-<p>AI事務員の仕組みや導入メリットを解説します。</p>
-</div>
-
-  <div class="card">
-<h2><a href="ai-seikyusho.html">AIで請求書作成を効率化する方法</a></h2>
-<p>AIを活用した請求書作成の効率化方法を解説します。</p>
-</div>
-
-<div class="card">
-<h2><a href="ai-mail.html">AIでメール対応を効率化する方法</a></h2>
-<p>メール対応時間を削減する方法を解説します。</p>
-</div>
-
-<div class="card">
-<h2><a href="ai-nippo.html">AIで日報作成を効率化する方法</a></h2>
-<p>AIを活用した日報作成の効率化を解説します。</p>
-</div>
-
-  <div class="card">
-<h2><a href="ai-kokyakukanri.html">AIで顧客管理を効率化する方法</a></h2>
-<p>顧客情報や問い合わせ履歴の管理を効率化する方法を解説します。</p>
-</div>
-
-<div class="card">
-<h2><a href="ai-sagyohokokusho.html">AIで作業報告書を作る方法</a></h2>
-<p>AIを活用した作業報告書作成の効率化について解説します。</p>
-</div>
-
-<div class="card">
-<h2><a href="ai-eigyomail.html">AIで営業メールを作る方法</a></h2>
-<p>営業メールやフォローメールを効率的に作成する方法を紹介します。</p>
-</div>
-
-<div class="card">
-<h2><a href="ai-claim.html">AIでクレーム対応文を作る方法</a></h2>
-<p>クレーム対応文や謝罪文の作成を効率化する方法を解説します。</p>
-</div>
-
-<div class="card">
-<h2><a href="ai-manual.html">AIでマニュアル作成を効率化する方法</a></h2>
-<p>業務マニュアルや手順書を効率的に作成する方法を紹介します。</p>
-</div>
-
-<div class="card">
-<h2><a href="ai-keiri.html">AIで経理業務を効率化する方法</a></h2>
-<p>請求書整理や経費管理など経理業務の効率化方法を解説します。</p>
-</div>
-
- <div class="card">
-<h2>
-<a href="freee-vs-moneyforward.html">
-freeeとマネーフォワードはどちらを選ぶべきか
-</a>
-</h2>
-
-<p>
-会社規模・担当者の性格・会社文化からfreeeとマネーフォワードの選び方を解説します。
-</p>
-</div>
-
-   <div class="card">
-<h2>
-  <a href="ai-gijiroku-tools-hikaku.html">
-<h3>AI議事録ツールおすすめ比較｜PLAUD・Notta・Notta Memoはどれを選ぶべきか</h3>
+  <div class="article-list">
+    <a class="article" href="hitori-keiri-taishoku.html">
+      <span class="tag">経理</span>
+      <h3>一人経理が辞めたら会社はどうなる？社長が最初に確認すべき10項目</h3>
+      <p>ネットバンク、請求書、未入金、支払予定、税理士対応まで整理します。</p>
     </a>
-<p>営業・経営者・事務担当向けにAI議事録ツールを比較。PLAUD、Notta Memo、Nottaの違いや向いている人を解説します。</p>
 
+    <a class="article" href="jimuin-taishoku-ai.html">
+      <span class="tag">事務</span>
+      <h3>事務員が辞めた会社が最初にやるべき5つのこと</h3>
+      <p>業務棚卸し、マニュアル化、AI活用、クラウド化の順番を解説します。</p>
+    </a>
+
+    <a class="article" href="jimuin-yameta.html">
+      <span class="tag">事務</span>
+      <h3>事務員が辞めた会社が最初にやるべき5つのこと</h3>
+      <p>事務員退職時の対応方法を解説します。</p>
+    </a>
+
+    <a class="article" href="ai-jimuin.html">
+      <span class="tag">AI事務</span>
+      <h3>AI事務員とは？導入メリットと注意点</h3>
+      <p>AI事務員の仕組みや導入メリットを解説します。</p>
+    </a>
+  </div>
+</section>
+
+<section class="category">
+  <div class="category-head">
+    <h2>会計ソフト・経理効率化</h2>
+    <div class="note">freee・マネーフォワード導線</div>
+  </div>
+
+  <div class="article-list">
+    <a class="article" href="freee-vs-moneyforward.html">
+      <span class="tag">比較</span>
+      <h3>freeeとマネーフォワードはどちらを選ぶべきか</h3>
+      <p>会社規模・担当者の性格・会社文化から選び方を解説します。</p>
+    </a>
+
+    <a class="article" href="ai-keiri.html">
+      <span class="tag">経理</span>
+      <h3>AIで経理業務を効率化する方法</h3>
+      <p>請求書整理や経費管理など経理業務の効率化方法を解説します。</p>
+    </a>
+
+    <a class="article" href="ai-seikyusho.html">
+      <span class="tag">請求書</span>
+      <h3>AIで請求書作成を効率化する方法</h3>
+      <p>AIを活用した請求書作成の効率化方法を解説します。</p>
+    </a>
+  </div>
+</section>
+
+<section class="category">
+  <div class="category-head">
+    <h2>AI議事録・会議記録</h2>
+    <div class="note">Notta・PLAUD導線</div>
+  </div>
+
+  <div class="article-list">
+    <a class="article" href="ai-gijiroku-tools-hikaku.html">
+      <span class="tag">比較</span>
+      <h3>AI議事録ツールおすすめ比較｜PLAUD・Notta・Notta Memoはどれを選ぶべきか</h3>
+      <p>営業・経営者・事務担当向けにAI議事録ツールを比較します。</p>
+    </a>
+
+    <a class="article" href="ai-gijiroku.html">
+      <span class="tag">議事録</span>
+      <h3>AIで議事録作成を効率化する方法</h3>
+      <p>会議後の議事録作成を効率化します。</p>
+    </a>
+  </div>
+</section>
+
+<section class="category">
+  <div class="category-head">
+    <h2>ChatGPT・業務効率化</h2>
+    <div class="note">日常業務の時短</div>
+  </div>
+
+  <div class="article-list">
+    <a class="article" href="gyomukouritsuka-guide.html">
+      <span class="tag">業務改善</span>
+      <h3>少人数会社の業務効率化完全ガイド</h3>
+      <p>少人数でも利益を伸ばす業務改善を解説します。</p>
+    </a>
+
+    <a class="article" href="chatgpt-nyumon.html">
+      <span class="tag">ChatGPT</span>
+      <h3>中小企業がChatGPTを導入する方法</h3>
+      <p>ChatGPT導入の手順と活用事例を紹介します。</p>
+    </a>
+
+    <a class="article" href="chatgpt-gyomukouritsuka.html">
+      <span class="tag">ChatGPT</span>
+      <h3>ChatGPTで業務効率化する方法</h3>
+      <p>ChatGPTを活用した業務効率化の実践方法を解説します。</p>
+    </a>
+
+    <a class="article" href="chatgpt-mitsumori.html">
+      <span class="tag">見積書</span>
+      <h3>ChatGPTで見積書作成を効率化する方法</h3>
+      <p>見積書作成時間を短縮する方法を紹介します。</p>
+    </a>
+
+    <a class="article" href="ai-mail.html">
+      <span class="tag">メール</span>
+      <h3>AIでメール対応を効率化する方法</h3>
+      <p>メール対応時間を削減する方法を解説します。</p>
+    </a>
+
+    <a class="article" href="ai-nippo.html">
+      <span class="tag">日報</span>
+      <h3>AIで日報作成を効率化する方法</h3>
+      <p>AIを活用した日報作成の効率化を解説します。</p>
+    </a>
+
+    <a class="article" href="ai-kokyakukanri.html">
+      <span class="tag">顧客管理</span>
+      <h3>AIで顧客管理を効率化する方法</h3>
+      <p>顧客情報や問い合わせ履歴の管理を効率化する方法を解説します。</p>
+    </a>
+
+    <a class="article" href="ai-sagyohokokusho.html">
+      <span class="tag">報告書</span>
+      <h3>AIで作業報告書を作る方法</h3>
+      <p>AIを活用した作業報告書作成の効率化について解説します。</p>
+    </a>
+
+    <a class="article" href="ai-eigyomail.html">
+      <span class="tag">営業</span>
+      <h3>AIで営業メールを作る方法</h3>
+      <p>営業メールやフォローメールを効率的に作成する方法を紹介します。</p>
+    </a>
+
+    <a class="article" href="ai-claim.html">
+      <span class="tag">クレーム</span>
+      <h3>AIでクレーム対応文を作る方法</h3>
+      <p>クレーム対応文や謝罪文の作成を効率化する方法を解説します。</p>
+    </a>
+
+    <a class="article" href="ai-manual.html">
+      <span class="tag">マニュアル</span>
+      <h3>AIでマニュアル作成を効率化する方法</h3>
+      <p>業務マニュアルや手順書を効率的に作成する方法を紹介します。</p>
+    </a>
+  </div>
+</section>
+
+<div class="footer-link">
+  <a href="index.html">トップページへ戻る</a>
 </div>
 
-<div class="top">
-<a href="index.html">トップページへ戻る</a>
 </div>
 
 </body>
 </html>
+```
