@@ -7,32 +7,385 @@
 <meta name="description" content="事務員が辞めた時に社長が最初にやるべきことを解説。業務整理、マニュアル化、AI活用、freee、マネーフォワード、Nottaまで中小企業向けに紹介します。">
 
 <style>
-body{max-width:900px;margin:40px auto;padding:20px;font-family:Arial,"Yu Gothic",sans-serif;line-height:1.9;color:#1f2937;background:#f8fafc;}
-nav{background:#fff;padding:14px 18px;border-radius:12px;box-shadow:0 3px 12px rgba(0,0,0,.06);margin-bottom:35px;}
-nav a{margin-right:18px;color:#2563eb;font-weight:bold;text-decoration:none;}
-h1{font-size:34px;color:#0f172a;line-height:1.4;}
-h2{border-left:6px solid #2563eb;padding-left:12px;margin-top:45px;color:#0f172a;}
-h3{margin-top:28px;color:#111827;}
-.box{background:#eff6ff;border:1px solid #bfdbfe;padding:22px;border-radius:14px;margin:25px 0;}
-.check{background:#fff;padding:22px;border-radius:14px;box-shadow:0 4px 14px rgba(0,0,0,.06);margin:25px 0;}
-table{width:100%;border-collapse:collapse;background:#fff;margin:25px 0;}
-th,td{border:1px solid #d1d5db;padding:12px;text-align:left;vertical-align:top;}
-th{background:#e5efff;}
-li{margin-bottom:8px;}
-a{color:#2563eb;font-weight:bold;}
-.cta{background:#fff7ed;border:1px solid #fed7aa;padding:24px;border-radius:14px;margin:30px 0;}
-footer{margin-top:50px;padding-top:25px;border-top:1px solid #ddd;text-align:center;}
+:root{
+  --navy:#0f172a;
+  --blue:#2563eb;
+  --orange:#f97316;
+  --green:#16a34a;
+  --red:#dc2626;
+  --purple:#7c3aed;
+  --gray:#64748b;
+  --line:#e5e7eb;
+  --white:#ffffff;
+}
+
+*{box-sizing:border-box;}
+
+body{
+  margin:0;
+  font-family:Arial,"Yu Gothic",sans-serif;
+  background:
+    radial-gradient(circle at top left,rgba(249,115,22,.13),transparent 28%),
+    linear-gradient(180deg,#f8fbff 0%,#edf3ff 100%);
+  color:#1f2937;
+  line-height:1.9;
+}
+
+a{
+  color:inherit;
+  text-decoration:none;
+}
+
+.container{
+  max-width:940px;
+  margin:auto;
+  padding:18px;
+}
+
+nav{
+  background:rgba(255,255,255,.92);
+  border-bottom:1px solid var(--line);
+  position:sticky;
+  top:0;
+  z-index:10;
+  backdrop-filter:blur(10px);
+}
+
+nav .container{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding-top:12px;
+  padding-bottom:12px;
+}
+
+.logo{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  font-weight:bold;
+  color:var(--navy);
+  font-size:18px;
+}
+
+.logo-mark{
+  background:linear-gradient(135deg,var(--orange),#facc15);
+  color:white;
+  width:30px;
+  height:30px;
+  border-radius:9px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  font-weight:bold;
+}
+
+.nav-link{
+  color:var(--blue);
+  font-weight:bold;
+  font-size:14px;
+}
+
+.hero{
+  background:linear-gradient(135deg,#0f172a 0%,#1e3a8a 58%,#2563eb 100%);
+  color:white;
+  border-radius:26px;
+  padding:40px 30px;
+  margin:24px 0;
+  box-shadow:0 22px 55px rgba(37,99,235,.25);
+  position:relative;
+  overflow:hidden;
+}
+
+.hero:after{
+  content:"";
+  position:absolute;
+  right:-80px;
+  top:-80px;
+  width:230px;
+  height:230px;
+  background:rgba(249,115,22,.28);
+  border-radius:50%;
+}
+
+.kicker{
+  display:inline-block;
+  background:rgba(255,255,255,.14);
+  border:1px solid rgba(255,255,255,.28);
+  padding:6px 13px;
+  border-radius:999px;
+  font-size:13px;
+  font-weight:bold;
+  margin-bottom:14px;
+}
+
+.hero h1{
+  font-size:34px;
+  line-height:1.35;
+  margin:0 0 15px;
+  max-width:780px;
+}
+
+.hero p{
+  color:#dbeafe;
+  margin:0;
+  max-width:760px;
+}
+
+.summary{
+  background:white;
+  border-radius:20px;
+  padding:22px;
+  margin:24px 0;
+  box-shadow:0 12px 30px rgba(15,23,42,.08);
+  border:1px solid rgba(226,232,240,.9);
+}
+
+.summary h2{
+  margin:0 0 12px;
+  font-size:22px;
+  color:var(--navy);
+  border:none;
+  padding:0;
+}
+
+.summary ul{
+  margin:0;
+  padding-left:20px;
+}
+
+h2{
+  font-size:25px;
+  color:var(--navy);
+  border-left:7px solid var(--orange);
+  padding-left:14px;
+  margin-top:48px;
+}
+
+h3{
+  font-size:20px;
+  color:var(--navy);
+  margin-top:30px;
+}
+
+p{
+  margin:16px 0;
+}
+
+.report{
+  background:white;
+  border-radius:18px;
+  padding:24px;
+  margin:28px 0;
+  box-shadow:0 10px 26px rgba(15,23,42,.07);
+  border:1px solid rgba(226,232,240,.9);
+}
+
+.point{
+  background:#eff6ff;
+  border-left:7px solid var(--blue);
+  padding:22px;
+  border-radius:14px;
+  margin:28px 0;
+}
+
+.warning{
+  background:#fff7ed;
+  border-left:7px solid var(--orange);
+  padding:22px;
+  border-radius:14px;
+  margin:28px 0;
+}
+
+.danger{
+  background:#fef2f2;
+  border-left:7px solid var(--red);
+  padding:22px;
+  border-radius:14px;
+  margin:28px 0;
+}
+
+.check{
+  background:white;
+  border:1px solid #d1d5db;
+  border-radius:16px;
+  padding:22px;
+  margin:26px 0;
+}
+
+.check ul,
+.check ol{
+  margin:0;
+  padding-left:20px;
+}
+
+table{
+  width:100%;
+  border-collapse:collapse;
+  background:white;
+  margin:26px 0;
+  border-radius:14px;
+  overflow:hidden;
+  box-shadow:0 8px 22px rgba(15,23,42,.06);
+}
+
+th,td{
+  border:1px solid #d1d5db;
+  padding:13px;
+  text-align:left;
+  vertical-align:top;
+}
+
+th{
+  background:#e5efff;
+  color:#111827;
+}
+
+.cta{
+  background:white;
+  border:2px solid #fed7aa;
+  border-radius:20px;
+  padding:26px;
+  margin:34px 0;
+  box-shadow:0 12px 28px rgba(249,115,22,.14);
+}
+
+.cta h2{
+  border:none;
+  padding:0;
+  margin:0 0 10px;
+  font-size:22px;
+}
+
+.cta a{
+  display:inline-block;
+  background:linear-gradient(135deg,var(--orange),#facc15);
+  color:white;
+  font-weight:bold;
+  padding:12px 18px;
+  border-radius:999px;
+  margin-top:8px;
+}
+
+.related{
+  background:#0f172a;
+  color:white;
+  border-radius:22px;
+  padding:26px;
+  margin:40px 0;
+}
+
+.related h2{
+  border:none;
+  padding:0;
+  margin:0 0 14px;
+  color:white;
+}
+
+.related a{
+  color:#93c5fd;
+  font-weight:bold;
+}
+
+footer{
+  text-align:center;
+  color:#64748b;
+  padding:30px 0 10px;
+}
+
+footer a{
+  color:var(--blue);
+  font-weight:bold;
+}
+
+@media (max-width:600px){
+  .container{padding:14px;}
+
+  .hero{
+    padding:28px 20px;
+    border-radius:20px;
+    margin:16px 0;
+  }
+
+  .hero h1{
+    font-size:25px;
+  }
+
+  .hero p{
+    font-size:14px;
+  }
+
+  h2{
+    font-size:21px;
+    margin-top:36px;
+  }
+
+  h3{
+    font-size:18px;
+  }
+
+  .summary,
+  .report,
+  .point,
+  .warning,
+  .danger,
+  .check,
+  .cta{
+    padding:18px;
+    border-radius:16px;
+  }
+
+  table{
+    font-size:13px;
+  }
+
+  th,td{
+    padding:10px;
+  }
+}
 </style>
 </head>
 
 <body>
 
 <nav>
-<a href="index.html">ホーム</a>
-<a href="articles.html">記事一覧</a>
+  <div class="container">
+    <div class="logo"><span class="logo-mark">AI</span>AI業務ラボ</div>
+    <a class="nav-link" href="articles.html">記事一覧へ</a>
+  </div>
 </nav>
 
-<h1>事務員が辞めた会社が最初にやるべき5つのこと｜AIとクラウド活用で会社を止めない方法</h1>
+<div class="container">
+
+<section class="hero">
+  <div class="kicker">経営者向け実務レポート</div>
+  <h1>事務員が辞めた会社が最初にやるべき5つのこと</h1>
+  <p>
+    事務員が辞めた時に本当に困るのは、作業そのものではありません。
+    会社の中で「誰が何をやっていたのか」が見えなくなることです。
+  </p>
+</section>
+
+<div class="summary">
+  <h2>この記事で分かること</h2>
+  <ul>
+    <li>事務員が辞めた時に本当に困ること</li>
+    <li>社長が最初にやるべき5つのこと</li>
+    <li>社長が全部抱え込む危険性</li>
+    <li>AIで代替できる仕事・できない仕事</li>
+    <li>Notta・freee・マネーフォワードをどう使うべきか</li>
+  </ul>
+</div>
+
+<div class="point">
+  <p>
+    <strong>先に結論です。</strong><br>
+    事務員が辞めた時に最初にやるべきことは、AIを探すことではありません。
+    まずは会社の業務を見える化することです。
+  </p>
+</div>
+
+<h2>事務員が辞めると本当に困るのは作業ではない</h2>
 
 <p>
 「事務員が辞めます」
@@ -52,15 +405,15 @@ footer{margin-top:50px;padding-top:25px;border-top:1px solid #ddd;text-align:cen
 </p>
 
 <p>
-なぜなら事務員の仕事は目に見えにくいからです。
+なぜなら、事務員の仕事は目に見えにくいからです。
 </p>
 
-<div class="box">
-この記事では、事務員が辞めた時に最初にやるべきことを解説します。
-AI導入やクラウド会計の前に、本当に必要なことから順番に説明します。
+<div class="danger">
+  <p>
+    危険なのは「請求書を作る人がいなくなること」ではありません。
+    何を、いつ、どの順番で処理していたのか分からなくなることです。
+  </p>
 </div>
-
-<h2>事務員が辞めると本当に困るのは作業ではない</h2>
 
 <p>
 多くの社長は、
@@ -78,9 +431,7 @@ AI導入やクラウド会計の前に、本当に必要なことから順番に
 </p>
 
 <p>
-しかし本当に困るのは、
-<strong>何をやっていたのか分からないこと</strong>
-です。
+しかし本当に困るのは、<strong>何をやっていたのか分からないこと</strong>です。
 </p>
 
 <p>
@@ -112,32 +463,11 @@ Excelでも作れます。
 </p>
 
 <p>
-社長は
+社長が「請求書お願い」と頼み、事務員が「わかりました」と処理する。
 </p>
 
 <p>
-「請求書お願い」
-</p>
-
-<p>
-と頼みます。
-</p>
-
-<p>
-事務員は
-</p>
-
-<p>
-「わかりました」
-</p>
-
-<p>
-と処理します。
-</p>
-
-<p>
-これが何年も続くと、
-会社の中で誰もやり方を知らない仕事が増えていきます。
+これが何年も続くと、会社の中で誰もやり方を知らない仕事が増えていきます。
 </p>
 
 <div class="check">
@@ -153,8 +483,7 @@ Excelでも作れます。
 </div>
 
 <p>
-事務員が辞めた瞬間、
-会社は初めて気付きます。
+事務員が辞めた瞬間、会社は初めて気付きます。
 </p>
 
 <p>
@@ -169,6 +498,13 @@ Excelでも作れます。
 という状態になります。
 </p>
 
+<div class="warning">
+  <p>
+    事務員退職で怖いのは、仕事量が増えることだけではありません。
+    会社の中に残っていない情報が一気に表面化することです。
+  </p>
+</div>
+
 <h2>社長が最初にやるべきこと① 業務を書き出す</h2>
 
 <p>
@@ -176,42 +512,38 @@ Excelでも作れます。
 </p>
 
 <p>
-最初にやるべきことは、
-事務員の仕事を全部書き出すことです。
+最初にやるべきことは、事務員の仕事を全部書き出すことです。
 </p>
 
-<h3>毎日やっている仕事</h3>
-
-<ul>
-<li>電話対応</li>
-<li>メール対応</li>
-<li>入金確認</li>
-<li>顧客対応</li>
-</ul>
-
-<h3>毎週やっている仕事</h3>
-
-<ul>
-<li>請求書発行</li>
-<li>売掛管理</li>
-<li>資料作成</li>
-</ul>
-
-<h3>毎月やっている仕事</h3>
-
-<ul>
-<li>給与資料作成</li>
-<li>会計資料整理</li>
-<li>経費集計</li>
-</ul>
+<table>
+<tr>
+<th>頻度</th>
+<th>主な業務</th>
+</tr>
+<tr>
+<td>毎日</td>
+<td>電話対応、メール対応、入金確認、顧客対応</td>
+</tr>
+<tr>
+<td>毎週</td>
+<td>請求書発行、売掛管理、資料作成</td>
+</tr>
+<tr>
+<td>毎月</td>
+<td>給与資料作成、会計資料整理、経費集計</td>
+</tr>
+<tr>
+<td>必要時</td>
+<td>郵送物発送、取引先対応、税理士対応、資料作成</td>
+</tr>
+</table>
 
 <p>
 この時点で多くの社長は驚きます。
 </p>
 
 <p>
-「こんなに仕事があったのか」
-となるからです。
+「こんなに仕事があったのか」となるからです。
 </p>
 
 <h2>社長が最初にやるべきこと② 優先順位を付ける</h2>
@@ -228,24 +560,35 @@ Excelでも作れます。
 <tr>
 <th>優先度</th>
 <th>業務</th>
+<th>理由</th>
 </tr>
 <tr>
 <td>最優先</td>
 <td>給与・請求書・入金確認</td>
+<td>お金の流れが止まるため</td>
 </tr>
 <tr>
 <td>高</td>
 <td>顧客対応・メール対応</td>
+<td>信用低下につながるため</td>
 </tr>
 <tr>
 <td>中</td>
 <td>売掛管理・資料作成</td>
+<td>後から問題が出やすいため</td>
 </tr>
 <tr>
 <td>低</td>
 <td>整理整頓・ファイリング</td>
+<td>急ぎではないが後で必要になるため</td>
 </tr>
 </table>
+
+<div class="point">
+  <p>
+    優先順位は「会社のお金」「顧客対応」「引き継ぎ資料」の順番で考えると整理しやすくなります。
+  </p>
+</div>
 
 <h2>社長が最初にやるべきこと③ マニュアル化する</h2>
 
@@ -254,64 +597,71 @@ Excelでも作れます。
 </p>
 
 <p>
-事務員に聞きながら、
-仕事の流れを文章にします。
+事務員に聞きながら、仕事の流れを文章にします。
 </p>
 
+<div class="check">
 <ul>
 <li>請求書発行手順</li>
 <li>売掛管理手順</li>
 <li>入金確認手順</li>
 <li>給与資料作成手順</li>
+<li>郵送物発送手順</li>
+<li>顧客対応手順</li>
 </ul>
+</div>
 
 <p>
-ChatGPTを活用すると、
-聞き取った内容から手順書を作ることができます。
+ChatGPTを活用すると、聞き取った内容から手順書を作ることができます。
 </p>
 
-<div class="box">
-誰か一人しか分からない仕事を減らすことが重要です。
+<div class="warning">
+  <p>
+    マニュアル化の目的は、きれいな資料を作ることではありません。
+    誰か一人しか分からない仕事を減らすことです。
+  </p>
 </div>
 
 <h2>事務員退職後の30日間で起きること</h2>
 
-<h3>1週目</h3>
-
 <p>
-まだ余裕があります。
+事務員が辞めた直後は、意外と何とかなるように感じることがあります。
 </p>
 
 <p>
-「なんとかなる」
-と思っています。
+しかし時間が経つほど、見えていなかった仕事が出てきます。
 </p>
 
-<h3>2週目</h3>
+<table>
+<tr>
+<th>時期</th>
+<th>起きやすいこと</th>
+</tr>
+<tr>
+<td>1週目</td>
+<td>まだ余裕がある。「なんとかなる」と思いやすい</td>
+</tr>
+<tr>
+<td>2週目</td>
+<td>電話、メール、請求書、入金確認が増え始める</td>
+</tr>
+<tr>
+<td>3週目</td>
+<td>営業や本来業務に時間を使えていないことに気付く</td>
+</tr>
+<tr>
+<td>4週目</td>
+<td>毎日忙しいのに売上が増えていない状態になる</td>
+</tr>
+</table>
 
-<p>
-電話、メール、請求書、入金確認が増え始めます。
-</p>
+<div class="danger">
+  <p>
+    仕事はしているのに会社を前に進めていない。
+    これが事務員退職後に起きやすい落とし穴です。
+  </p>
+</div>
 
-<h3>3週目</h3>
-
-<p>
-「あれ？営業に行けてないな」
-となります。
-</p>
-
-<h3>4週目</h3>
-
-<p>
-毎日忙しいのに売上が増えていない状態になります。
-</p>
-
-<p>
-ここで初めて、
-仕事はしているのに会社を前に進めていないことに気付きます。
-</p>
-```
-```html
 <h2>社長が全部抱えると会社が止まる</h2>
 
 <p>
@@ -322,31 +672,39 @@ ChatGPTを活用すると、
 それは、すべて自分で抱えることです。
 </p>
 
-<p>
-社長がやるべき仕事は、
-</p>
+<table>
+<tr>
+<th>社長が本来やるべき仕事</th>
+<th>事務員退職後に増える仕事</th>
+</tr>
+<tr>
+<td>営業</td>
+<td>請求書発行・入金確認</td>
+</tr>
+<tr>
+<td>採用</td>
+<td>電話対応・メール対応</td>
+</tr>
+<tr>
+<td>資金繰り</td>
+<td>売掛管理・支払確認</td>
+</tr>
+<tr>
+<td>取引先対応</td>
+<td>郵送物・資料作成</td>
+</tr>
+<tr>
+<td>仕組み作り</td>
+<td>書類整理・ファイリング</td>
+</tr>
+</table>
 
-<ul>
-<li>営業</li>
-<li>採用</li>
-<li>資金繰り</li>
-<li>取引先対応</li>
-<li>仕組み作り</li>
-</ul>
-
-<p>
-です。
-</p>
-
-<p>
-しかし事務員退職後、多くの社長は請求書、入金確認、売掛管理、郵送物、電話対応に追われます。
-</p>
-
-<p>
-すると営業の時間が減ります。
-営業が減ると売上が増えません。
-売上が増えないのに事務作業だけ増えるため、会社はどんどん苦しくなります。
-</p>
+<div class="danger">
+  <p>
+    社長が事務作業に追われると、営業・採用・資金繰り・仕組み作りの時間が削られます。
+    これが長く続くと、売上や利益にも影響します。
+  </p>
+</div>
 
 <h2>AIで代替できる仕事・できない仕事</h2>
 
@@ -399,10 +757,12 @@ AIは、事務作業の時間を減らす道具です。
 </ul>
 </div>
 
-<p>
-作業はAIに任せやすいです。
-しかし判断は人間が行う必要があります。
-</p>
+<div class="point">
+  <p>
+    作業はAIに任せやすいです。
+    しかし判断は人間が行う必要があります。
+  </p>
+</div>
 
 <h2>社長が最初にやるべきこと④ AIを使う</h2>
 
@@ -418,9 +778,12 @@ AIは、事務作業の時間を減らす道具です。
 整理されていない仕事にAIを入れても効果は出ません。
 </p>
 
-<p>
-AIは、整理された仕事を速くする道具です。
-</p>
+<div class="warning">
+  <p>
+    AIは、整理された仕事を速くする道具です。
+    整理されていない業務を勝手に整えてくれるわけではありません。
+  </p>
+</div>
 
 <h3>ChatGPTでできること</h3>
 
@@ -446,14 +809,12 @@ AIは、整理された仕事を速くする道具です。
 </div>
 
 <div class="cta">
-<h2>会議や打ち合わせ記録を残すならNotta</h2>
-<p>
-事務員が辞めた後は、打ち合わせ内容や引き継ぎ内容を残すことが重要です。
-議事録作成の負担を減らしたい場合は、Nottaも候補になります。
-</p>
-<p>
-<a href="https://px.a8.net/svt/ejp?a8mat=4B5WG8+9PHGVM+5988+5YJRM" rel="nofollow">議事録作成の手間を大幅に軽減【Notta】</a>
-</p>
+  <h2>会議や打ち合わせ記録を残すならNotta</h2>
+  <p>
+    事務員が辞めた後は、打ち合わせ内容や引き継ぎ内容を残すことが重要です。
+    議事録作成の負担を減らしたい場合は、Nottaも候補になります。
+  </p>
+  <a href="https://px.a8.net/svt/ejp?a8mat=4B5WG8+9PHGVM+5988+5YJRM" rel="nofollow">議事録作成の手間を大幅に軽減【Notta】</a>
 </div>
 
 <h2>社長が最初にやるべきこと⑤ クラウド化する</h2>
@@ -466,10 +827,7 @@ AIは、整理された仕事を速くする道具です。
 この時に紙、Excel、手入力だけで管理していると負担が大きくなります。
 </p>
 
-<p>
-特に注意したいのは、
-</p>
-
+<div class="danger">
 <ul>
 <li>請求漏れ</li>
 <li>入金確認漏れ</li>
@@ -477,10 +835,7 @@ AIは、整理された仕事を速くする道具です。
 <li>経費入力漏れ</li>
 <li>税理士へ渡す資料の不足</li>
 </ul>
-
-<p>
-です。
-</p>
+</div>
 
 <p>
 クラウド会計ソフトを使うと、銀行連携や請求書管理、会計資料整理の負担を減らせる場合があります。
@@ -488,44 +843,40 @@ AIは、整理された仕事を速くする道具です。
 
 <h3>freeeが向いている会社</h3>
 
+<div class="report">
 <ul>
 <li>社長が経理も見る</li>
 <li>経理担当者がいない</li>
 <li>なるべく簡単に始めたい</li>
 <li>請求書や経費をまとめて管理したい</li>
 </ul>
+</div>
 
 <div class="cta">
-<h2>社長が経理も見るならfreee</h2>
-<p>
-経理担当がいない会社や、まずは簡単にクラウド会計を始めたい会社はfreeeを確認してみてください。
-</p>
-<p>
-<a href="https://px.a8.net/svt/ejp?a8mat=4B5VOE+66O50Y+3SPO+9FL80Y" rel="nofollow">
-まずは無料でお試し【freee会計】
-</a>
-</p>
+  <h2>社長が経理も見るならfreee</h2>
+  <p>
+    経理担当がいない会社や、まずは簡単にクラウド会計を始めたい会社はfreeeを確認してみてください。
+  </p>
+  <a href="https://px.a8.net/svt/ejp?a8mat=4B5VOE+66O50Y+3SPO+9FL80Y" rel="nofollow">まずは無料でお試し【freee会計】</a>
 </div>
 
 <h3>マネーフォワードが向いている会社</h3>
 
+<div class="report">
 <ul>
 <li>経理担当者がいる</li>
 <li>税理士と連携したい</li>
 <li>会計の流れを細かく見たい</li>
 <li>将来的に管理体制を整えたい</li>
 </ul>
+</div>
 
 <div class="cta">
-<h2>税理士連携や管理体制を重視するならマネーフォワード</h2>
-<p>
-経理担当者や税理士と連携しながら管理したい場合は、マネーフォワードも候補になります。
-</p>
-<p>
-<a href="https://px.a8.net/svt/ejp?a8mat=4B5VOE+6MQUCY+3SPO+8RK61U" rel="nofollow">
-マネーフォワード【マネーフォワード クラウド】
-</a>
-</p>
+  <h2>税理士連携や管理体制を重視するならマネーフォワード</h2>
+  <p>
+    経理担当者や税理士と連携しながら管理したい場合は、マネーフォワードも候補になります。
+  </p>
+  <a href="https://px.a8.net/svt/ejp?a8mat=4B5VOE+6MQUCY+3SPO+8RK61U" rel="nofollow">マネーフォワード クラウド</a>
 </div>
 
 <h2>AI導入で失敗する会社</h2>
@@ -534,11 +885,7 @@ AIは、整理された仕事を速くする道具です。
 事務員が辞めたからといって、いきなりAIを入れても失敗します。
 </p>
 
-<p>
-よくある流れはこうです。
-</p>
-
-<div class="box">
+<div class="danger">
 <p>
 事務員が辞める<br>
 ↓<br>
@@ -589,43 +936,30 @@ AIは、整理されていない業務を勝手に整理してくれるわけで
 </ul>
 </div>
 
-<p>
-この状態にしておけば、次に人が辞めても会社は大きく揺れません。
-</p>
-
 <h2>5年後に差が付く会社</h2>
 
 <p>
 事務員が辞めた後、会社は2つに分かれます。
 </p>
 
-<h3>何も変えない会社</h3>
-
-<p>
-新しい事務員を採用し、前任者と同じやり方を続けます。
-</p>
-
-<p>
-一時的には解決します。
-</p>
-
-<p>
-しかし数年後、また同じ問題が起きます。
-</p>
-
-<h3>仕組み化する会社</h3>
-
-<p>
-業務棚卸し、マニュアル化、クラウド化、AI活用を進めます。
-</p>
-
-<p>
-最初は大変です。
-</p>
-
-<p>
-しかし3年後、5年後には大きな差になります。
-</p>
+<table>
+<tr>
+<th>何も変えない会社</th>
+<th>仕組み化する会社</th>
+</tr>
+<tr>
+<td>新しい事務員を採用し、前任者と同じやり方を続ける</td>
+<td>業務棚卸し、マニュアル化、クラウド化、AI活用を進める</td>
+</tr>
+<tr>
+<td>数年後また同じ問題が起きる</td>
+<td>誰が辞めても会社が止まりにくくなる</td>
+</tr>
+<tr>
+<td>業務が人に依存する</td>
+<td>業務が仕組みに残る</td>
+</tr>
+</table>
 
 <h2>中小企業がAIを導入する本当の目的</h2>
 
@@ -647,15 +981,13 @@ AIやクラウドを使う目的は、その依存を少しずつ減らすこと
 
 <h2>最終結論</h2>
 
-<div class="box">
+<div class="report">
 <p>
 事務員が辞めた時に最初にやるべきことは、AIを探すことではありません。
-まずは会社の業務を見える化することです。
 </p>
-</div>
 
 <p>
-順番は以下です。
+まずは会社の業務を見える化することです。
 </p>
 
 <ol>
@@ -673,46 +1005,44 @@ AIは魔法ではありません。
 <p>
 しかし正しく使えば、社長や事務担当者の時間を大きく取り戻してくれます。
 </p>
-
-<p>
-事務員の退職は大変な出来事です。
-</p>
-
-<p>
-しかし見方を変えれば、会社の仕組みを作り直すチャンスでもあります。
-</p>
-
-<div class="cta">
-<h2>まずは業務に合うツールを確認する</h2>
-<p>
-事務員退職後の負担を減らすには、AIとクラウドを正しく使うことが重要です。
-</p>
-
-<p>
-<a href="https://px.a8.net/svt/ejp?a8mat=4B5WG8+9PHGVM+5988+5YJRM" rel="nofollow">議事録作成の手間を大幅に軽減【Notta】</a>
-</p>
-
-<p>
-<a href="https://px.a8.net/svt/ejp?a8mat=4B5VOE+66O50Y+3SPO+9FL80Y" rel="nofollow">まずは無料でお試し【freee会計】</a>
-</p>
-
-<p>
-<a href="https://px.a8.net/svt/ejp?a8mat=4B5VOE+6MQUCY+3SPO+8RK61U" rel="nofollow">マネーフォワード【マネーフォワード クラウド】</a>
-</p>
 </div>
 
+<div class="cta">
+  <h2>この記事で紹介したツール</h2>
+  <p>
+    事務員退職後の負担を減らすには、AIとクラウドを正しく使うことが重要です。
+  </p>
+
+  <p>
+    <a href="https://px.a8.net/svt/ejp?a8mat=4B5WG8+9PHGVM+5988+5YJRM" rel="nofollow">Notta</a>
+  </p>
+
+  <p>
+    <a href="https://px.a8.net/svt/ejp?a8mat=4B5VOE+66O50Y+3SPO+9FL80Y" rel="nofollow">freee会計</a>
+  </p>
+
+  <p>
+    <a href="https://px.a8.net/svt/ejp?a8mat=4B5VOE+6MQUCY+3SPO+8RK61U" rel="nofollow">マネーフォワード クラウド</a>
+  </p>
+</div>
+
+<div class="related">
 <h2>関連記事</h2>
 <ul>
-<li><a href="ai-jimuin.html">事務員が辞めた会社はAIでどこまで補えるのか</a></li>
-<li><a href="ai-keiri.html">社長が経理を引き継ぐと何が起きるのか</a></li>
+<li><a href="hitori-keiri-taishoku.html">一人経理が辞めたら会社はどうなる？</a></li>
 <li><a href="freee-vs-moneyforward.html">freeeとマネーフォワードはどちらを選ぶべきか</a></li>
 <li><a href="ai-gijiroku-tools-hikaku.html">AI議事録ツールおすすめ比較</a></li>
+<li><a href="ai-keiri.html">AIで経理業務を効率化する方法</a></li>
 </ul>
+</div>
 
 <footer>
 <p><a href="articles.html">記事一覧へ戻る</a></p>
 <p><a href="index.html">トップページへ戻る</a></p>
+<p>© 2026 AI業務ラボ</p>
 </footer>
+
+</div>
 
 </body>
 </html>
