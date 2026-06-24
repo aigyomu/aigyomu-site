@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>一人経理を効率化する方法：業務標準化と自動化でミスを減らし月次決算を早める実践ガイド</title>
+<meta name="description" content="一人で経理を担当する方向けの実務ガイド。業務棚卸し、標準化、請求入金消込の自動化、仕訳テンプレート、月次決算5営業日化、法令対応、RPA・ノーコードの導入手順とチェックリストを提供。">
+<style>
+  :root{--max-w:1100px;--accent:#0a66c2;--muted:#666;}
+  body{font-family:system-ui,-apple-system,Segoe UI,Roboto,"Hiragino Kaku Gothic ProN","Yu Gothic",sans-serif;line-height:1.65;color:#111;margin:0;padding:0;background:#f7f8fb;}
+  .container{max-width:var(--max-w);margin:20px auto;padding:20px;background:#fff;border-radius:8px;box-shadow:0 2px 8px rgba(10,10,10,0.05);}
+  header h1{margin:0 0 8px 0;font-size:1.4rem;}
+  header p.lead{margin:0;color:var(--muted);}
+  nav{margin:16px 0;padding:10px 0;border-top:1px solid #eee;border-bottom:1px solid #eee;}
+  nav a{display:inline-block;margin:6px 8px;color:var(--accent);text-decoration:none;font-size:0.95rem;}
+  section{margin:18px 0;padding-bottom:10px;border-bottom:1px dashed #eee;}
+  h2{font-size:1.05rem;margin:8px 0;color:#0b2b4a;}
+  h3{font-size:0.98rem;margin:6px 0;color:#0b2b4a;}
+  p{margin:8px 0;color:#222;}
+  ul{margin:8px 0 8px 20px;}
+  ol{margin:8px 0 8px 20px;}
+  table{width:100%;border-collapse:collapse;margin:12px 0;background:#fff;}
+  th,td{border:1px solid #e6e6e6;padding:8px;text-align:left;font-size:0.92rem;}
+  th{background:#fafafa;}
+  .small{font-size:0.85rem;color:var(--muted);}
+  .cta{display:flex;flex-wrap:wrap;gap:10px;margin:12px 0 24px 0;}
+  .btn{background:var(--accent);color:#fff;padding:10px 14px;border-radius:6px;text-decoration:none;font-weight:600;}
+  .btn.secondary{background:#fff;color:var(--accent);border:1px solid var(--accent);}
+  pre{background:#f3f7ff;padding:10px;border-radius:6px;overflow:auto;font-size:0.9rem;}
+  .flex{display:flex;gap:12px;flex-wrap:wrap;}
+  .card{flex:1 1 260px;background:#fbfdff;padding:12px;border-radius:6px;border:1px solid #eef3ff;}
+  @media (max-width:600px){
+    header h1{font-size:1.05rem;}
+    .flex{flex-direction:column;}
+  }
+  .compare{margin:12px 0;}
+  .checklist{background:#fffbe6;padding:12px;border-radius:6px;border:1px solid #ffe3a8;}
+  footer{font-size:0.85rem;color:var(--muted);margin-top:20px;padding-top:10px;border-top:1px solid #eee;}
+  a.anchor-link{color:var(--accent);text-decoration:none;margin-left:6px;font-size:0.9rem;}
+</style>
+</head>
+<body>
+<div class="container">
+  <header>
+    <h1>一人経理を効率化する方法：業務標準化と自動化でミスを減らし月次決算を早める実践ガイド</h1>
+    <p class="lead">経営者・一人経理担当向けの実務手順、テンプレート、チェックリストを網羅。最初の30日で効果の出る短期施策から、6〜12ヶ月で完成させる改善ロードマップまで。</p>
+  </header>
+
+  <nav>
+    <a href="#導入">導入</a>
+    <a href="#短期施策">最初の30日</a>
+    <a href="#業務棚卸し">業務棚卸し</a>
+    <a href="#請求入金">請求〜入金消込</a>
+    <a href="#銀行仕訳">銀行明細・仕訳</a>
+    <a href="#経費精算">経費精算</a>
+    <a href="#支払業務">支払業務</a>
+    <a href="#月次決算">月次決算5営業日化</a>
+    <a href="#法定対応">年間業務/法定対応</a>
+    <a href="#自動化例">RPA・ノーコード</a>
+    <a href="#KPI">KPIダッシュボード</a>
+    <a href="#ミス防止">ミス防止</a>
+    <a href="#ロードマップ">ロードマップ</a>
+    <a href="#まとめ">まとめ</a>
+    <a href="#付録">付録</a>
+  </nav>
+
+  <section id="導入">
+    <h2>導入：一人経理が抱える6つの課題と目標設定</h2>
+    <ol>
+      <li>属人化：業務が頭の中にありドキュメント化が不十分</li>
+      <li>長い月次決算：締めに時間がかかり経営判断が遅れる</li>
+      <li>手作業ミス：銀行明細や消込でヒューマンエラーが発生</li>
+      <li>証憑管理の煩雑さ：紙ベースやバラバラな保存</li>
+      <li>法令対応の不安：電子帳簿保存法／インボイス対応</li>
+      <li>引継ぎ・休暇時のリスク：代替フローがない</li>
+    </ol>
+    <p>目標設定（例）: 3ヶ月で月次決算を10営業日→5営業日に短縮、6ヶ月で請求入金消込の自動化を50%以上実現、12ヶ月で主要業務のSOP化と引継ぎパック完成。</p>
+  </section>
+
+  <section id="短期施策">
+    <h2>即効で効果が出る3つの短期施策（最初の30日）</h2>
+
+    <h3 id="業務棚卸しと標準化">業務棚卸しで「やること／やめること」を見える化 <a class="anchor-link" href="#業務棚卸し">詳細へ</a></h3>
+    <p>まずは全業務をリスト化。週次・月次・随時を区分し、作業時間と重要度を記載します。これにより自動化や外注の候補が明確になります。</p>
+
+    <h3 id="月次締めスケジュール">重要業務の優先順位付けと月次締めスケジュールの逆算 <a class="anchor-link" href="#月次決算">詳細へ</a></h3>
+    <p>月次締め日から逆算して、いつまでに何を終えるかをスケジュール化します。入金消込と未払金の把握は優先度高。</p>
+
+    <h3 id="二重チェックとログ設計">ミス低減のためのチェックリストとログ設計 <a class="anchor-link" href="#ミス防止">詳細へ</a></h3>
+    <p>二重チェック（承認ルール）とログ保存（差分・変更履歴）を最低限設計。チェックリストは作業ごとに1枚にまとめると運用しやすいです。</p>
+  </section>
+
+  <section id="業務棚卸し">
+    <h2>業務棚卸しと標準化の具体手順</h2>
+
+    <h3>全業務リスト化のテンプレートとKPI候補 <a class="anchor-link" href="#付録">付録テンプレへ</a></h3>
+    <p>まずは下の表フォーマットで業務を書き出してください。</p>
+    <table>
+      <thead>
+        <tr><th>業務名</th><th>頻度</th><th>所要時間（実測）</th><th>重要度</th><th>自動化可能性</th><th>備考</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>請求書発行</td><td>月次/随時</td><td>2時間</td><td>高</td><td>高</td><td>フォーマット統一で自動化可</td></tr>
+        <tr><td>入金消込</td><td>日次</td><td>1.5時間</td><td>高</td><td>高</td><td>銀行連携で自動化推奨</td></tr>
+        <tr><td>経費精算</td><td>随時</td><td>1時間</td><td>中</td><td>中</td><td>ペーパーレス導入で削減</td></tr>
+      </tbody>
+    </table>
+    <p class="small">KPI候補：月次決算日数、売掛消化率、入金消込率、経費処理リードタイム、残高差異率。</p>
+
+    <h3>作業時間・頻度の計測方法とコスト換算</h3>
+    <ol>
+      <li>1週間〜1ヶ月の作業ログを取り、実作業時間を記録</li>
+      <li>外部ツールやタイムトラッキングアプリを活用</li>
+      <li>人件費換算：時給×作業時間でコストを算出し自動化投資の回収期間を計算</li>
+    </ol>
+
+    <h3>標準化ドキュメント（SOP）と引継ぎパックの作り方 <a class="anchor-link" href="#ミス防止">テンプレへ</a></h3>
+    <p>SOPは「目的・対象・手順（ステップ）・注意点・チェックリスト・関連ファイル」の構成で作成。引継ぎパックには主要パスワード（安全管理）、取引先一覧、重要ファイルの保存場所を含めます。</p>
+    <pre>
+SOPテンプレ（例）
+1. 業務名：入金消込
+2. 目的：入金を売掛に反映し未回収を把握する
+3. 頻度：毎営業日
+4. 手順：
+  4.1 銀行明細をダウンロード
+  4.2 システムの売掛データと突合
+  4.3 突合できない明細はメモ化し督促リストへ
+5. 注意点：同名入金は振込依頼人コードで照合
+6. チェックリスト：明細数一致／残差0円／ログ保存
+    </pre>
+  </section>
+
+  <section id="請求入金">
+    <h2>請求から入金消込までの自動化設計</h2>
+
+    <h3>請求書発行のルール化とフォーマット統一 <a class="anchor-link" href="#付録">請求テンプレへ</a></h3>
+    <p>請求書は必須項目をテンプレ化（請求番号、支払期日、振込先、インボイス適格番号、金額、内訳）。メール送付やクラウド請求書機能を利用し、PDF化→電子保存を必須にします。</p>
+
+    <h3>入金消込自動化の仕組み（銀行自動連携・消込ルール）</h3>
+    <ol>
+      <li>銀行APIまたはCSV連携で明細を自動取得</li>
+      <li>ルールエンジン：請求番号・金額・振込人名・端数でマッチング優先順位を設定</li>
+      <li>自動消込の確度が低いものだけ手動チェックへ回す</li>
+    </ol>
+
+    <h3>滞留アラートと督促自動化で売掛管理を強化</h3>
+    <p>未入金が期日超過した場合、自動で督促メールを送信。督促テンプレ・段階（1回目：期日翌日、2回目：期日+7日、最終：法的手続き予告）を用意します。</p>
+
+    <div class="card">
+      <h3>督促テンプレ（簡易）</h3>
+      <p>件名：ご請求のご確認（請求番号：{{請求番号}}）</p>
+      <p>本文テンプレ：お世話になっております。以下の請求についてご入金の確認が取れておりません。お手数ですがご確認のほどお願いいたします。請求金額：{{金額}}、期日：{{期日}}</p>
+    </div>
+  </section>
+
+  <section id="銀行仕訳">
+    <h2>銀行明細・仕訳の自動化ルールと仕訳テンプレート</h2>
+
+    <h3>銀行明細の自動取得と整形</h3>
+    <p>銀行からのCSVを標準フォーマットに整形し、日付・金額・摘要を正規化。ノーコードツールやデータフローでETL処理を行うと安定します。</p>
+
+    <h3>仕訳ルールの優先順位と例外ハンドリング</h3>
+    <ol>
+      <li>最優先：請求番号一致→売掛消込</li>
+      <li>次：定期的な振込（家賃、リース等）→定期仕訳</li>
+      <li>次：摘要キーワードマッチ→科目割当</li>
+      <li>例外：マッチしない明細は「要調査」プールへ</li>
+    </ol>
+
+    <h3>勘定科目マスターの整備方法と運用ルール</h3>
+    <p>科目マスターはコード・名称・利用例・税区分を保持。変更時はバージョン管理し、変更ログを残すこと。新規科目は承認フロー経由で追加。</p>
+
+    <table>
+      <thead>
+        <tr><th>仕訳テンプレート（入金）</th><th>借方</th><th>貸方</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>売掛入金（請求番号あり）</td><td>普通預金 XXX円</td><td>売掛金 XXX円</td></tr>
+        <tr><td>支払（振込・手数料含む）</td><td>仕入高（税抜） XXX円 / 支払手数料 XXX円</td><td>普通預金 合計XXX円</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section id="経費精算">
+    <h2>経費精算のペーパーレス化と証憑管理</h2>
+
+    <h3>経費ワークフロー設計（申請→承認→支払）と承認ルール</h3>
+    <p>承認フローは金額レンジで自動分岐。例：〜5万円は部門長承認、〜20万円は代表承認。申請はスマホで写真アップ・OCRで自動入力。</p>
+
+    <h3>証憑の電子保管・フォルダとタグ設計で検索性を高める</h3>
+    <ol>
+      <li>ファイル命名ルール：YYYYMMDD_会社名_金額_摘要.pdf</li>
+      <li>タグ：経費区分、プロジェクト、支払方法</li>
+      <li>保存ポリシー：バックアップ・アクセス権限設定</li>
+    </ol>
+
+    <h3>マニュアル化して承認漏れ・不正を防ぐ</h3>
+    <p>定期監査のチェックリストを設け、ランダム抽出で承認履歴と証憑の整合性を確認します。</p>
+  </section>
+
+  <section id="支払業務">
+    <h2>支払業務の一括化と承認フロー最適化</h2>
+
+    <h3>FB・振込の一括化タイミングとリスク管理</h3>
+    <p>支払日は週1〜2回に集約し、資金繰りに合わせて締める。急ぎ支払は承認ルールを別に設け、ログを必ず残す。</p>
+
+    <h3>承認者が少ない環境での代替フローとログ保持</h3>
+    <p>承認者が一人のときは代替承認（非常時の代理承認）ルールを文書化。承認メールや承認システムのログを一定期間保持。</p>
+
+    <h3>支払スケジュールと資金繰り連動の作り方</h3>
+    <p>支払予定表をダッシュボード化し、当座・預金の残高推移を毎日自動更新。直近90日のキャッシュフローを常に把握。</p>
+  </section>
+
+  <section id="月次決算">
+    <h2>月次決算を5営業日で締める設計</h2>
+
+    <h3>締めスケジュールの逆算と各担当フロー</h3>
+    <p>5営業日締めの逆算例：</p>
+    <ol>
+      <li>D+1：銀行明細取り込み・自動消込</li>
+      <li>D+2：未消込調査・経費精算反映</li>
+      <li>D+3：残高調整・未払計上</li>
+      <li>D+4：試算表作成・差異チェック</li>
+      <li>D+5：確定・報告書作成</li>
+    </ol>
+
+    <h3>チェックリストと月次締め前日の確認項目</h3>
+    <div class="checklist">
+      <ul>
+        <li>銀行残高と試算表残高の差異が0円か確認</li>
+        <li>全ての経費精算が反映済みか</li>
+        <li>未払金・前払金の計上漏れがないか</li>
+        <li>主要売掛の入金状況と督促状況を確認</li>
+      </ul>
+    </div>
+
+    <h3>早期化で使う自動化技術とテンプレート</h3>
+    <p>自動仕訳ルール、API連携、RPAでのデータ取込、ノーコードワークフローを組み合わせて工数を削減します。</p>
+  </section>
+
+  <section id="法定対応">
+    <h2>年間業務と法定対応（年末調整・法定調書・電子帳簿保存法・インボイス）</h2>
+
+    <h3>年末調整と法定調書の省力化年間スケジュール</h3>
+    <p>年末調整は9月〜11月に従業員へ事前案内、必要書類の回収をオンラインで済ませる。法定調書は1月末に向けてテンプレを用意。</p>
+
+    <h3>電子帳簿保存法とインボイス制度への最短対応チェックリスト</h3>
+    <ol>
+      <li>証憑の電子化ポリシーを作成</li>
+      <li>タイムスタンプや検索可能なメタデータを実装</li>
+      <li>インボイス対応：適格請求書発行事業者番号を請求テンプレに反映</li>
+      <li>運用テストを実施し記録を残す</li>
+    </ol>
+
+    <h3>実務でよくある落とし穴と対応例</h3>
+    <p>落とし穴：OCRの誤認識、証憑ファイルの重複保存、税区分の誤設定。対応：目視チェックのポイント設置と定期監査。</p>
+  </section>
+
+  <section id="自動化例">
+    <h2>RPA・ノーコードで定型作業を自動化する具体例</h2>
+
+    <h3>請求書発行・入金消込・銀行明細取り込みの自動化フロー</h3>
+    <p>フロー例：</p>
+    <ol>
+      <li>売上データをCSV出力→ノーコードで請求書を自動生成（PDF）</li>
+      <li>PDFをメール送信＋クラウド保存</li>
+      <li>銀行明細をAPIで取得→消込ルールで自動照合→未消込のみタスク化</li>
+    </ol>
+
+    <h3>ノーコードツールの選定基準とコスト目安</h3>
+    <ul>
+      <li>API連携の有無、CSVハンドリング、ログ保持、運用サポート</li>
+      <li>コスト目安：月数千円〜数万円（中小企業向け）</li>
+    </ul>
+
+    <h3>小さく始めて拡大するステップ（PoCから本番まで）</h3>
+    <ol>
+      <li>PoC：1つの業務（例：入金消込）でKPIを計測</li>
+      <li>検証：誤マッチ率、工数削減率を確認</li>
+      <li>本番化：運用ルールと監視アラートを実装</li>
+    </ol>
+  </section>
+
+  <section id="KPI">
+    <h2>KPIダッシュボードで経営数値を即時可視化</h2>
+
+    <h3>必須KPI一覧（例）</h3>
+    <ul>
+      <li>売掛回転日数（DSO）</li>
+      <li>入金消込率</li>
+      <li>月次決算日数</li>
+      <li>経費比率（売上比）</li>
+      <li>月次キャッシュ差異（試算表との差）</li>
+    </ul>
+
+    <h3>ダッシュボード設計の優先度と更新頻度</h3>
+    <p>優先度：現金残高・売掛残高・入金予定は毎日更新。試算表や収益指標は月次、重要な差異は即時アラート。</p>
+
+    <h3>ツール連携と自動更新の実装ポイント</h3>
+    <p>データソースを固定し、ETLで正規化した上でダッシュボードへ連携。手動介入ポイントを減らすことが鍵。</p>
+  </section>
+
+  <section id="ミス防止">
+    <h2>ミスを防ぐ運用（二重チェックとログ設計）と属人化対策</h2>
+
+    <h3>一人でも回る二重チェックのルールとログ設計</h3>
+    <p>二重チェック実現手法：</p>
+    <ul>
+      <li>システム上で「セルフチェック」→「後日監査（週次）」の流れを運用</li>
+      <li>重要仕訳は自動でフラグを付け、週次でまとめてレビューログを残す</li>
+    </ul>
+
+    <h3>マニュアル・引継ぎパックのテンプレート</h3>
+    <p>引継ぎパック例：</p>
+    <ol>
+      <li>業務フロー図（PDF）</li>
+      <li>SOP（Word/PDF）</li>
+      <li>重要連絡先一覧（CSV）</li>
+      <li>システムログ・アクセス方法の説明</li>
+    </ol>
+
+    <h3>教育・レビューサイクルの作り方</h3>
+    <p>月次レビューで出た改善点をSOPに反映。年2回は運用レビューと模擬引継ぎを実施することを推奨します。</p>
+  </section>
+
+  <section id="ロードマップ">
+    <h2>改善ロードマップと優先度マトリクス（0–3ヶ月／3–6ヶ月／6–12ヶ月）</h2>
+    <table>
+      <thead><tr><th>期間</th><th>重点施策</th><th>期待効果</th></tr></thead>
+      <tbody>
+        <tr><td>0–3ヶ月</td><td>業務棚卸し、SOP作成、入金消込のPoC、チェックリスト導入</td><td>月次の安定化、ミス低減、工数見える化</td></tr>
+        <tr><td>3–6ヶ月</td><td>請求発行自動化、OCR導入、支払スケジュール集約</td><td>作業工数30〜60%削減、月次早期化</td></tr>
+        <tr><td>6–12ヶ月</td><td>完全自動化の拡張、KPIダッシュボード、本番運用・引継ぎパック完成</td><td>属人化解消、経営判断スピード向上</td></tr>
+      </tbody>
+    </table>
+
+    <h3>優先度マトリクス（労力 vs 効果）</h3>
+    <p class="small">低労力・高効果：入金消込自動化、請求テンプレ導入。高労力・高効果：フルRPA化、会計システム再設計。</p>
+  </section>
+
+  <section id="まとめ">
+    <h2>まとめ：短期で成果を出しつつ持続可能な運用へ移行するためのチェックリスト</h2>
+    <div class="checklist">
+      <ul>
+        <li>業務を全てリスト化し自動化候補を抽出したか</li>
+        <li>月次締めの逆算スケジュールを作成したか</li>
+        <li>入金消込のPoCを実施し効果を計測したか</li>
+        <li>SOPと引継ぎパックのドラフトを用意したか</li>
+        <li>電子帳簿保存法・インボイスの基本対応を済ませたか</li>
+        <li>KPIダッシュボードで主要指標を可視化しているか</li>
+      </ul>
+    </div>
+    <p>このガイドは「まずやること」を明確にし、小さな自動化から始めて継続的に拡大することを意図しています。成果を短期で出し、半年〜1年で持続可能な体制へ移行しましょう。</p>
+  </section>
+
+  <section id="付録">
+    <h2>付録（ダウンロード資料）</h2>
+    <p>以下は付録テンプレのサンプル（ページ内表示）です。ダウンロードボタンからメールでテンプレ請求も可能です。</p>
+
+    <div class="flex">
+      <div class="card">
+        <h3>業務棚卸テンプレート（サンプル）</h3>
+        <table>
+          <thead><tr><th>業務名</th><th>頻度</th><th>所要時間</th><th>自動化候補</th></tr></thead>
+          <tbody>
+            <tr><td>請求書発行</td><td>月次/随時</td><td>2h</td><td>高</td></tr>
+            <tr><td>入金消込</td><td>日次</td><td>1.5h</td><td>高</td></tr>
+            <tr><td>経費精算</td><td>随時</td><td>1h</td><td>中</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="card">
+        <h3>仕訳テンプレート＆勘定科目マスター雛形</h3>
+        <pre>
+コード,科目名,税区分,説明
+101,普通預金,非課税,主要銀行口座
+201,売掛金,課税,得意先への請求債権
+501,仕入,課税,仕入原価
+        </pre>
+      </div>
+
+      <div class="card">
+        <h3>月次締めカレンダー（サンプル）</h3>
+        <p>月末締め→翌月5営業日で確定。日別タスク一覧をテンプレ化。</p>
+      </div>
+    </div>
+
+    <h3>電子帳簿保存法・インボイス対応チェックリスト（簡易）</h3>
+    <ol>
+      <li>証憑をスキャンしてPDF化、フォルダとタグで整理</li>
+      <li>タイムスタンプとアクセスログを保持</li>
+      <li>請求テンプレに適格請求書番号を追加</li>
+      <li>運用ルールをSOPに明記し試験運用を行う</li>
+    </ol>
+
+    <div class="cta">
+      <a class="btn" href="mailto:info@example.com?subject=テンプレ請求（一人経理ガイド）&body=業務棚卸テンプレート等を送付してください。">テンプレをメールで請求</a>
+      <a class="btn secondary" href="#まとめ">チェックリストを印刷</a>
+    </div>
+  </section>
+
+  <section id="比較表">
+    <h2>比較表：手作業 / 簡易ツール / 自動化（RPA・ノーコード）</h2>
+    <table class="compare">
+      <thead>
+        <tr><th>項目</th><th>手作業</th><th>簡易ツール（Excel/クラウド）</th><th>自動化（RPA/ノーコード）</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>初期コスト</td><td>低</td><td>低〜中</td><td>中〜高</td></tr>
+        <tr><td>導入工数</td><td>低</td><td>中</td><td>高（PoC推奨）</td></tr>
+        <tr><td>運用コスト</td><td>高（人件費）</td><td>中</td><td>低〜中</td></tr>
+        <tr><td>ミス率</td><td>高</td><td>中</td><td>低（例外処理は必要）</td></tr>
+        <tr><td>拡張性</td><td>低</td><td>中</td><td>高</td></tr>
+        <tr><td>推奨用途</td><td>小規模/臨時対応</td><td>短期改善・可視化</td><td>定型作業の大量処理</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <footer>
+    <p>このガイドは実務レベルで「一人経理」が即実行できる手順とテンプレートを提供することを目的としています。まずは一つの業務を自動化することから始めてください。</p>
+    <p class="small">お問い合わせ：<a href="mailto:info@example.com">info@example.com</a></p>
+  </footer>
+</div>
+
+<div class="youtube-video">
+<iframe
+width="100%"
+height="500"
+src="https://www.youtube.com/embed/N1Q3IQIcWq8"
+title="YouTube video player"
+frameborder="0"
+allowfullscreen>
+</iframe>
+</div>
+
+</body>
+</html>
